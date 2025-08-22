@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+import ModelViewer from '../components/ModelViewer.astro';
+---
+
+<!-- Main page styles -->
+<link rel="stylesheet" href="/src/styles/pages/app.css">
+
+<Layout>
+  <div class="app-container">
+    <Header title="Virtual Try-On Studio" />
+    <main class="main-content">
+      <Sidebar />
+      <ModelViewer />
+    </main>
+  </div>
+</Layout>

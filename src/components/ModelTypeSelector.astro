@@ -1,0 +1,30 @@
+---
+import '../styles/components/model-type-selector.css';
+---
+
+<div class="model-type-selector">
+  <h3 class="section-title">Select Model Type</h3>
+  <div class="type-tabs">
+    <button class="type-tab active" data-type="female">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="4" r="2"></circle>
+        <path d="m15.5 7.5-3.5 3.5-3.5-3.5"></path>
+        <path d="M12 11v10"></path>
+      </svg>
+      <span>Female</span>
+    </button>
+    <button class="type-tab" data-type="male">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="4" r="2"></circle>
+        <path d="m15.5 7.5-3.5 3.5-3.5-3.5"></path>
+        <path d="M12 11v10"></path>
+        <path d="m8 16 8 0"></path>
+      </svg>
+      <span>Male</span>
+    </button>
+  </div>
+</div>
+
+<script>
+  import '../scripts/components/ModelTypeSelector.ts';
+</script>

@@ -1,0 +1,84 @@
+---
+import '../styles/components/clothes-selector.css';
+
+interface ClothingItem {
+  id: string;
+  name: string;
+  category: string;
+  image: string;
+  price: string;
+}
+
+const clothingItems: ClothingItem[] = [
+  {
+    id: '1',
+    name: 'Classic White Shirt',
+    category: 'tops',
+    image: 'https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
+    price: '$49'
+  },
+  {
+    id: '2',
+    name: 'Summer Blouse',
+    category: 'tops', 
+    image: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
+    price: '$39'
+  },
+  {
+    id: '3',
+    name: 'Denim Jeans',
+    category: 'bottoms',
+    image: 'https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
+    price: '$79'
+  },
+  {
+    id: '4',
+    name: 'Elegant Dress',
+    category: 'one-piece',
+    image: 'https://images.pexels.com/photos/1040424/pexels-photo-1040424.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
+    price: '$89'
+  }
+];
+---
+
+<div class="clothes-selector">
+  <h3 class="section-title">Select Clothes</h3>
+  <div class="clothes-grid" data-active-category="tops">
+    {clothingItems.map(item => (
+      <div 
+        class={`clothes-item ${item.category}`}
+        data-item-id={item.id}
+        data-category={item.category}
+      >
+        <div class="item-image">
+          <img src={item.image} alt={item.name} />
+          <div class="item-overlay">
+            <button class="try-on-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="7.5,12 12,15 16.5,12"></polyline>
+                <polyline points="12,22 12,15"></polyline>
+              </svg>
+              Try On
+            </button>
+          </div>
+        </div>
+        <div class="item-info">
+          <h4 class="item-name">{item.name}</h4>
+          <span class="item-price">{item.price}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+  
+  <div class="empty-state">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+    </svg>
+    <p>Select a category to view clothes</p>
+  </div>
+</div>
+
+<script>
+  import '../scripts/components/ClothesSelector.ts';
+</script>

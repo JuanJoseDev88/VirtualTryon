@@ -1,0 +1,53 @@
+---
+import '../styles/components/clothing-category.css';
+
+interface Category {
+  id: string;
+  name: string;
+  icon: string;
+}
+
+const categories: Category[] = [
+  { id: 'tops', name: 'Tops', icon: 'shirt' },
+  { id: 'bottoms', name: 'Bottoms', icon: 'pants' },
+  { id: 'one-piece', name: 'One-Piece', icon: 'dress' }
+];
+---
+
+<div class="clothing-category">
+  <h3 class="section-title">Clothing Category</h3>
+  <div class="category-buttons">
+    {categories.map(category => (
+      <button 
+        class="category-btn" 
+        data-category={category.id}
+      >
+        <div class="category-icon">
+          {category.icon === 'shirt' && (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"></path>
+            </svg>
+          )}
+          {category.icon === 'pants' && (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M8.5 2h7l1 5v15l-3-1-3 1-3-1v-15z"></path>
+              <path d="M14 7H10"></path>
+            </svg>
+          )}
+          {category.icon === 'dress' && (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a3 3 0 0 0-3 3c0 1 0 3 0 3s1-1 3-1 3 1 3 1 0-2 0-3a3 3 0 0 0-3-3z"></path>
+              <path d="M19 12H5l-1-7h16l-1 7z"></path>
+              <path d="M5 12l2 8h10l2-8"></path>
+            </svg>
+          )}
+        </div>
+        <span class="category-name">{category.name}</span>
+      </button>
+    ))}
+  </div>
+</div>
+
+<script>
+  import '../scripts/components/ClothingCategory.ts';
+</script>

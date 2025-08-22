@@ -1,0 +1,69 @@
+---
+import '../styles/components/model-gallery.css';
+
+interface Model {
+  id: string;
+  name: string;
+  type: 'female' | 'male';
+  image: string;
+}
+
+const models: Model[] = [
+  {
+    id: '1',
+    name: 'Sarah',
+    type: 'female',
+    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=300&h=400'
+  },
+  {
+    id: '2', 
+    name: 'Emma',
+    type: 'female',
+    image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300&h=400'
+  },
+  {
+    id: '3',
+    name: 'Michael',
+    type: 'male', 
+    image: 'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=300&h=400'
+  },
+  {
+    id: '4',
+    name: 'David',
+    type: 'male',
+    image: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=300&h=400'
+  }
+];
+---
+
+<div class="model-gallery">
+  <h3 class="section-title">Choose Your Model</h3>
+  <div class="models-grid" data-current-type="female">
+    {models.map(model => (
+      <div 
+        class={`model-card ${model.type}`} 
+        data-model-id={model.id}
+        data-model-type={model.type}
+      >
+        <div class="model-image">
+          <img src={model.image} alt={`Model ${model.name}`} />
+          <div class="model-overlay">
+            <div class="select-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20,6 9,17 4,12"></polyline>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="model-info">
+          <h4 class="model-name">{model.name}</h4>
+          <span class="model-type-badge">{model.type}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  import '../scripts/components/ModelGallery.ts';
+</script>

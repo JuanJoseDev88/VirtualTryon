@@ -1,16 +1,241 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<!-- Landing page styles -->
+<link rel="stylesheet" href="/src/styles/pages/index.css">
+
+<Layout>
+  <div class="landing-container">
+    <!-- Hero Section -->
+    <header class="hero">
+      <nav class="navbar">
+        <div class="nav-brand">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="7.5,12 12,15 16.5,12"></polyline>
+            <polyline points="12,22 12,15"></polyline>
+          </svg>
+          <span class="brand-text">Vtryon</span>
+        </div>
+        <div class="nav-links">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#demo" class="nav-link">Demo</a>
+          <a href="/app" class="cta-button">Try Now</a>
+        </div>
+      </nav>
+
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            Experience the Future of
+            <span class="gradient-text">Virtual Fashion</span>
+          </h1>
+          <p class="hero-subtitle">
+            Try on clothes virtually with our AI-powered platform. 
+            See how you look in any outfit before you buy.
+          </p>
+          <div class="hero-buttons">
+            <a href="/app" class="primary-button">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="5,3 19,12 5,21"></polygon>
+              </svg>
+              Start Virtual Try-On
+            </a>
+            <button class="secondary-button" id="watchDemoBtn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10,8 16,12 10,16"></polygon>
+              </svg>
+              Watch Demo
+            </button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="model-preview">
+              <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=300&h=400" alt="Model preview" class="model-img">
+              <div class="clothing-overlay">
+                <img src="https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=200&h=200" alt="Clothing overlay" class="clothing-img">
+              </div>
+            </div>
+          </div>
+          <div class="floating-elements">
+            <div class="float-item float-1">👗</div>
+            <div class="float-item float-2">👔</div>
+            <div class="float-item float-3">👖</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+      <div class="container">
+        <h2 class="section-title">Why Choose Vtryon?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+            <h3>AI-Powered Models</h3>
+            <p>Choose from diverse AI models and see realistic try-on results with advanced computer vision.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              </svg>
+            </div>
+            <h3>Instant Results</h3>
+            <p>Get immediate visual feedback on how clothes look and fit without waiting or downloading anything.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <h3>Multiple Categories</h3>
+            <p>Try on tops, bottoms, dresses, and complete outfits across different clothing categories.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+      <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps-grid">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Choose Your Model</h3>
+              <p>Select from our diverse collection of AI models or upload your own photo.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Browse Clothing</h3>
+              <p>Explore our catalog of clothing items organized by categories and styles.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Virtual Try-On</h3>
+              <p>See instant results as our AI overlays the clothing on your selected model.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Save & Share</h3>
+              <p>Save your favorite looks and share them with friends or on social media.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+      <div class="container">
+        <h2 class="section-title">See It In Action</h2>
+        <div class="demo-content">
+          <div class="demo-video">
+            <div class="video-placeholder">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10,8 16,12 10,16"></polygon>
+              </svg>
+              <p>Interactive Demo Coming Soon</p>
+            </div>
+          </div>
+          <div class="demo-stats">
+            <div class="stat">
+              <div class="stat-number">10K+</div>
+              <div class="stat-label">Happy Users</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Clothing Items</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">99%</div>
+              <div class="stat-label">Accuracy Rate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Transform Your Shopping Experience?</h2>
+          <p>Join thousands of users who are already using Vtryon to make better fashion choices.</p>
+          <a href="/app" class="cta-button-large">
+            Get Started Free
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,18 15,12 9,6"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="brand">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              </svg>
+              <span>Vtryon</span>
+            </div>
+            <p>The future of virtual fashion technology.</p>
+          </div>
+          <div class="footer-links">
+            <div class="link-group">
+              <h4>Product</h4>
+              <a href="/app">Try Now</a>
+              <a href="#features">Features</a>
+              <a href="#demo">Demo</a>
+            </div>
+            <div class="link-group">
+              <h4>Company</h4>
+              <a href="#">About</a>
+              <a href="#">Blog</a>
+              <a href="#">Contact</a>
+            </div>
+            <div class="link-group">
+              <h4>Support</h4>
+              <a href="#">Help Center</a>
+              <a href="#">Privacy</a>
+              <a href="#">Terms</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Vtryon. All rights reserved. Built with Astro & TypeScript.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</Layout>
+
+<script>
+  // Landing page interactions
+  import '../scripts/components/LandingPage.ts';
+</script>

@@ -1,0 +1,104 @@
+.model-gallery {
+  padding: 16px;
+  background-color: rgba(17, 24, 39, 0.8);
+  border-radius: 12px;
+  border: 1px solid rgba(55, 65, 81, 0.5);
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.model-card {
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  position: relative;
+  background-color: rgba(31, 41, 55, 0.5);
+}
+
+.model-card:not([data-model-type="female"]) {
+  display: none;
+}
+
+.models-grid[data-current-type="male"] .model-card:not([data-model-type="male"]) {
+  display: none;
+}
+
+.models-grid[data-current-type="male"] .model-card[data-model-type="male"] {
+  display: block;
+}
+
+
+.model-card.selected {
+  border-color: #14b8a6;
+  box-shadow: 0 0 15px rgba(20, 184, 166, 0.3);
+}
+
+.model-image {
+  position: relative;
+}
+
+.model-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.model-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.model-card.selected .model-overlay {
+  opacity: 1;
+}
+
+.select-icon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(20, 184, 166, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.model-info {
+  padding: 12px;
+  text-align: center;
+}
+
+.model-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.model-type-badge {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: rgba(55, 65, 81, 0.7);
+  color: #9ca3af;
+  text-transform: capitalize;
+}
