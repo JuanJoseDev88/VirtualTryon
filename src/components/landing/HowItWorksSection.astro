@@ -1,0 +1,42 @@
+---
+import { createTranslator, DEFAULT_LANGUAGE } from '../../i18n/index';
+
+// Use default language for server-side rendering
+const t = createTranslator(DEFAULT_LANGUAGE);
+---
+
+<section id="how-it-works" class="how-it-works">
+  <div class="container">
+    <h2 class="section-title" data-i18n="landing.howItWorks.title">{t('landing.howItWorks.title')}</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3 data-i18n="landing.howItWorks.step1.title">{t('landing.howItWorks.step1.title')}</h3>
+          <p data-i18n="landing.howItWorks.step1.description">{t('landing.howItWorks.step1.description')}</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3 data-i18n="landing.howItWorks.step2.title">{t('landing.howItWorks.step2.title')}</h3>
+          <p data-i18n="landing.howItWorks.step2.description">{t('landing.howItWorks.step2.description')}</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3 data-i18n="landing.howItWorks.step3.title">{t('landing.howItWorks.step3.title')}</h3>
+          <p data-i18n="landing.howItWorks.step3.description">{t('landing.howItWorks.step3.description')}</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3 data-i18n="landing.howItWorks.step4.title">{t('landing.howItWorks.step4.title')}</h3>
+          <p data-i18n="landing.howItWorks.step4.description">{t('landing.howItWorks.step4.description')}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

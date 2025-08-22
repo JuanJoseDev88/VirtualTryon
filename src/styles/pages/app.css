@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #F5E6D3 0%, #E8D5C4 50%, #DCC5B0 100%);
 }
 
 .main-content {
@@ -45,6 +45,6 @@
 
 /* Focus styles for accessibility */
 *:focus {
-  outline: 2px solid #4f46e5;
+  outline: 2px solid #8B4513;
   outline-offset: 2px;
 }

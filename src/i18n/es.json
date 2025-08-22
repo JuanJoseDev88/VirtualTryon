@@ -1,6 +1,6 @@
 {
   "common": {
-    "brand": "Vtryon",
+    "brand": "GALA",
     "loading": "Cargando...",
     "error": "Error",
     "success": "Éxito"
@@ -21,7 +21,7 @@
     "hero": {
       "title": "Experimenta el Futuro de la",
       "titleHighlight": "Moda Virtual",
-      "subtitle": "Pruébate ropa virtualmente con nuestra plataforma impulsada por IA. Ve cómo te queda cualquier outfit antes de comprarlo.",
+      "subtitle": "",
       "startTryOn": "Comenzar Prueba Virtual",
       "watchDemo": "Ver Demostración"
     },

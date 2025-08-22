@@ -1,0 +1,43 @@
+---
+import { createTranslator, DEFAULT_LANGUAGE } from '../../i18n/index';
+
+// Use default language for server-side rendering
+const t = createTranslator(DEFAULT_LANGUAGE);
+---
+
+<section id="features" class="features">
+  <div class="container">
+    <h2 class="section-title" data-i18n="landing.features.title">{t('landing.features.title')}</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        <h3 data-i18n="landing.features.aiModels.title">{t('landing.features.aiModels.title')}</h3>
+        <p data-i18n="landing.features.aiModels.description">{t('landing.features.aiModels.description')}</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+          </svg>
+        </div>
+        <h3 data-i18n="landing.features.instantResults.title">{t('landing.features.instantResults.title')}</h3>
+        <p data-i18n="landing.features.instantResults.description">{t('landing.features.instantResults.description')}</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <h3 data-i18n="landing.features.multipleCategories.title">{t('landing.features.multipleCategories.title')}</h3>
+        <p data-i18n="landing.features.multipleCategories.description">{t('landing.features.multipleCategories.description')}</p>
+      </div>
+    </div>
+  </div>
+</section>

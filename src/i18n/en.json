@@ -1,6 +1,6 @@
 {
   "common": {
-    "brand": "Vtryon",
+    "brand": "GALA",
     "loading": "Loading...",
     "error": "Error",
     "success": "Success"
@@ -19,9 +19,9 @@
   },
   "landing": {
     "hero": {
-      "title": "Experience the Future of",
-      "titleHighlight": "Virtual Fashion",
-      "subtitle": "Try on clothes virtually with our AI-powered platform. See how you look in any outfit before you buy.",
+      "title": "Welcome to ",
+      "titleHighlight": "GALA",
+      "subtitle": "the AI-powered design studio that generates hyper-realistic images of your creations on any model you can imagine. No cameras, no studios, no limits.",
       "startTryOn": "Start Virtual Try-On",
       "watchDemo": "Watch Demo"
     },

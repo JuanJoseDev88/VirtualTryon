@@ -1,0 +1,21 @@
+---
+import { createTranslator, DEFAULT_LANGUAGE } from '../../i18n/index';
+
+// Use default language for server-side rendering
+const t = createTranslator(DEFAULT_LANGUAGE);
+---
+
+<section class="cta">
+  <div class="container">
+    <div class="cta-content">
+      <h2 data-i18n="landing.cta.title">{t('landing.cta.title')}</h2>
+      <p data-i18n="landing.cta.subtitle">{t('landing.cta.subtitle')}</p>
+      <a href="/app" class="cta-button-large">
+        <span data-i18n="landing.cta.button">{t('landing.cta.button')}</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9,18 15,12 9,6"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

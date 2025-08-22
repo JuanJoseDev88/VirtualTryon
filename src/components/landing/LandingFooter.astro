@@ -1,0 +1,45 @@
+---
+import { createTranslator, DEFAULT_LANGUAGE } from '../../i18n/index';
+
+// Use default language for server-side rendering
+const t = createTranslator(DEFAULT_LANGUAGE);
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="brand">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+          </svg>
+          <span data-i18n="common.brand">{t('common.brand')}</span>
+        </div>
+        <p data-i18n="landing.footer.tagline">{t('landing.footer.tagline')}</p>
+      </div>
+      <div class="footer-links">
+        <div class="link-group">
+          <h4 data-i18n="landing.footer.product">{t('landing.footer.product')}</h4>
+          <a href="/app" data-i18n="navigation.tryNow">{t('navigation.tryNow')}</a>
+          <a href="#features" data-i18n="navigation.features">{t('navigation.features')}</a>
+          <a href="#demo" data-i18n="navigation.demo">{t('navigation.demo')}</a>
+        </div>
+        <div class="link-group">
+          <h4 data-i18n="landing.footer.company">{t('landing.footer.company')}</h4>
+          <a href="#" data-i18n="navigation.about">{t('navigation.about')}</a>
+          <a href="#" data-i18n="navigation.blog">{t('navigation.blog')}</a>
+          <a href="#" data-i18n="navigation.contact">{t('navigation.contact')}</a>
+        </div>
+        <div class="link-group">
+          <h4 data-i18n="landing.footer.support">{t('landing.footer.support')}</h4>
+          <a href="#" data-i18n="navigation.helpCenter">{t('navigation.helpCenter')}</a>
+          <a href="#" data-i18n="navigation.privacy">{t('navigation.privacy')}</a>
+          <a href="#" data-i18n="navigation.terms">{t('navigation.terms')}</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="landing.footer.copyright">{t('landing.footer.copyright')}</p>
+    </div>
+  </div>
+</footer>
