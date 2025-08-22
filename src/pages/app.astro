@@ -3,6 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Sidebar from '../components/Sidebar.astro';
 import ModelViewer from '../components/ModelViewer.astro';
+import { detectLanguage, createTranslator } from '../i18n/index';
+
+// Detect language from request headers
+const language = detectLanguage(Astro.request.headers.get('accept-language') || '');
+const t = createTranslator(language);
 ---
 
 <!-- Main page styles -->
@@ -10,7 +15,7 @@ import ModelViewer from '../components/ModelViewer.astro';
 
 <Layout>
   <div class="app-container">
-    <Header title="Virtual Try-On Studio" />
+    <Header title={t('app.header.title')} />
     <main class="main-content">
       <Sidebar />
       <ModelViewer />

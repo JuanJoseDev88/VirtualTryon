@@ -1,5 +1,10 @@
 ---
 import '../styles/components/process-button.css';
+import { createTranslator, DEFAULT_LANGUAGE } from '../i18n/index';
+
+// Use default language for server-side rendering
+// Client-side will update dynamically
+const t = createTranslator(DEFAULT_LANGUAGE);
 ---
 
 <div class="process-button-container">
@@ -10,15 +15,16 @@ import '../styles/components/process-button.css';
         <polyline points="7.5,12 12,15 16.5,12"></polyline>
         <polyline points="12,22 12,15"></polyline>
       </svg>
-      <span class="btn-text">Process Image</span>
+      <span class="btn-text" data-i18n="app.processButton.processImage">{t('app.processButton.processImage')}</span>
     </div>
     <div class="loading-spinner">
       <div class="spinner"></div>
-      <span>Processing...</span>
+      <span data-i18n="app.processButton.processing">{t('app.processButton.processing')}</span>
     </div>
   </button>
 </div>
 
 <script>
   import '../scripts/components/ProcessButton.ts';
+  import '../i18n/client.ts';
 </script>

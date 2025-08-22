@@ -1,21 +1,25 @@
 ---
 import '../styles/components/clothing-category.css';
+import { createTranslator, DEFAULT_LANGUAGE } from '../i18n/index';
+
+// Use default language for server-side rendering
+const t = createTranslator(DEFAULT_LANGUAGE);
 
 interface Category {
   id: string;
-  name: string;
+  nameKey: string;
   icon: string;
 }
 
 const categories: Category[] = [
-  { id: 'tops', name: 'Tops', icon: 'shirt' },
-  { id: 'bottoms', name: 'Bottoms', icon: 'pants' },
-  { id: 'one-piece', name: 'One-Piece', icon: 'dress' }
+  { id: 'tops', nameKey: 'categories.tops', icon: 'shirt' },
+  { id: 'bottoms', nameKey: 'categories.bottoms', icon: 'pants' },
+  { id: 'one-piece', nameKey: 'categories.dresses', icon: 'dress' }
 ];
 ---
 
 <div class="clothing-category">
-  <h3 class="section-title">Clothing Category</h3>
+  <h3 class="section-title" data-i18n="app.clothingCategory.title">Clothing Category</h3>
   <div class="category-buttons">
     {categories.map(category => (
       <button 
@@ -42,7 +46,7 @@ const categories: Category[] = [
             </svg>
           )}
         </div>
-        <span class="category-name">{category.name}</span>
+        <span class="category-name" data-i18n={category.nameKey}>{t(category.nameKey)}</span>
       </button>
     ))}
   </div>
@@ -50,4 +54,5 @@ const categories: Category[] = [
 
 <script>
   import '../scripts/components/ClothingCategory.ts';
+  import '../i18n/client.ts';
 </script>

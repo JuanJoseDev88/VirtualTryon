@@ -1,0 +1,113 @@
+{
+  "common": {
+    "brand": "Vtryon",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito"
+  },
+  "navigation": {
+    "features": "Características",
+    "howItWorks": "Cómo Funciona",
+    "demo": "Demostración",
+    "tryNow": "Probar Ahora",
+    "about": "Acerca de",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "helpCenter": "Centro de Ayuda",
+    "privacy": "Privacidad",
+    "terms": "Términos"
+  },
+  "landing": {
+    "hero": {
+      "title": "Experimenta el Futuro de la",
+      "titleHighlight": "Moda Virtual",
+      "subtitle": "Pruébate ropa virtualmente con nuestra plataforma impulsada por IA. Ve cómo te queda cualquier outfit antes de comprarlo.",
+      "startTryOn": "Comenzar Prueba Virtual",
+      "watchDemo": "Ver Demostración"
+    },
+    "features": {
+      "title": "¿Por Qué Elegir Vtryon?",
+      "aiModels": {
+        "title": "Modelos con IA",
+        "description": "Elige entre diversos modelos de IA y obtén resultados realistas de prueba con visión computacional avanzada."
+      },
+      "instantResults": {
+        "title": "Resultados Instantáneos",
+        "description": "Obtén retroalimentación visual inmediata sobre cómo se ve y se ajusta la ropa sin esperar o descargar nada."
+      },
+      "multipleCategories": {
+        "title": "Múltiples Categorías",
+        "description": "Pruébate blusas, pantalones, vestidos y outfits completos en diferentes categorías de ropa."
+      }
+    },
+    "howItWorks": {
+      "title": "Cómo Funciona",
+      "step1": {
+        "title": "Elige Tu Modelo",
+        "description": "Selecciona de nuestra diversa colección de modelos de IA o sube tu propia foto."
+      },
+      "step2": {
+        "title": "Explora Ropa",
+        "description": "Explora nuestro catálogo de prendas organizadas por categorías y estilos."
+      },
+      "step3": {
+        "title": "Prueba Virtual",
+        "description": "Ve resultados instantáneos mientras nuestra IA superpone la ropa en tu modelo seleccionado."
+      },
+      "step4": {
+        "title": "Guarda y Comparte",
+        "description": "Guarda tus looks favoritos y compártelos con amigos o en redes sociales."
+      }
+    },
+    "demo": {
+      "title": "Míralo en Acción",
+      "placeholder": "Demostración Interactiva Próximamente",
+      "stats": {
+        "users": "Usuarios Felices",
+        "items": "Prendas de Ropa",
+        "accuracy": "Tasa de Precisión"
+      }
+    },
+    "cta": {
+      "title": "¿Listo para Transformar tu Experiencia de Compras?",
+      "subtitle": "Únete a miles de usuarios que ya están usando Vtryon para tomar mejores decisiones de moda.",
+      "button": "Comenzar Gratis"
+    },
+    "footer": {
+      "tagline": "El futuro de la tecnología de moda virtual.",
+      "product": "Producto",
+      "company": "Empresa",
+      "support": "Soporte",
+      "copyright": "© 2024 Vtryon. Todos los derechos reservados. Construido con Astro y TypeScript."
+    }
+  },
+  "app": {
+    "header": {
+      "title": "Estudio de Prueba Virtual"
+    },
+    "modelType": {
+      "title": "Seleccionar Tipo de Modelo",
+      "female": "Femenino",
+      "male": "Masculino"
+    },
+    "clothingCategory": {
+      "title": "Categoría de Ropa"
+    },
+    "processButton": {
+      "processImage": "Procesar Imagen",
+      "processing": "Procesando..."
+    },
+    "imageAlt": {
+      "modelPreview": "Vista previa del modelo",
+      "clothingOverlay": "Superposición de ropa"
+    }
+  },
+  "categories": {
+    "tops": "Blusas",
+    "bottoms": "Pantalones",
+    "dresses": "Vestidos",
+    "outerwear": "Abrigos",
+    "shoes": "Zapatos",
+    "accessories": "Accesorios"
+  }
+}

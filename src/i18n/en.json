@@ -1,0 +1,113 @@
+{
+  "common": {
+    "brand": "Vtryon",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "navigation": {
+    "features": "Features",
+    "howItWorks": "How It Works",
+    "demo": "Demo",
+    "tryNow": "Try Now",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "helpCenter": "Help Center",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "landing": {
+    "hero": {
+      "title": "Experience the Future of",
+      "titleHighlight": "Virtual Fashion",
+      "subtitle": "Try on clothes virtually with our AI-powered platform. See how you look in any outfit before you buy.",
+      "startTryOn": "Start Virtual Try-On",
+      "watchDemo": "Watch Demo"
+    },
+    "features": {
+      "title": "Why Choose Vtryon?",
+      "aiModels": {
+        "title": "AI-Powered Models",
+        "description": "Choose from diverse AI models and see realistic try-on results with advanced computer vision."
+      },
+      "instantResults": {
+        "title": "Instant Results",
+        "description": "Get immediate visual feedback on how clothes look and fit without waiting or downloading anything."
+      },
+      "multipleCategories": {
+        "title": "Multiple Categories",
+        "description": "Try on tops, bottoms, dresses, and complete outfits across different clothing categories."
+      }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "step1": {
+        "title": "Choose Your Model",
+        "description": "Select from our diverse collection of AI models or upload your own photo."
+      },
+      "step2": {
+        "title": "Browse Clothing",
+        "description": "Explore our catalog of clothing items organized by categories and styles."
+      },
+      "step3": {
+        "title": "Virtual Try-On",
+        "description": "See instant results as our AI overlays the clothing on your selected model."
+      },
+      "step4": {
+        "title": "Save & Share",
+        "description": "Save your favorite looks and share them with friends or on social media."
+      }
+    },
+    "demo": {
+      "title": "See It In Action",
+      "placeholder": "Interactive Demo Coming Soon",
+      "stats": {
+        "users": "Happy Users",
+        "items": "Clothing Items",
+        "accuracy": "Accuracy Rate"
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Shopping Experience?",
+      "subtitle": "Join thousands of users who are already using Vtryon to make better fashion choices.",
+      "button": "Get Started Free"
+    },
+    "footer": {
+      "tagline": "The future of virtual fashion technology.",
+      "product": "Product",
+      "company": "Company",
+      "support": "Support",
+      "copyright": "© 2024 Vtryon. All rights reserved. Built with Astro & TypeScript."
+    }
+  },
+  "app": {
+    "header": {
+      "title": "Virtual Try-On Studio"
+    },
+    "modelType": {
+      "title": "Select Model Type",
+      "female": "Female",
+      "male": "Male"
+    },
+    "clothingCategory": {
+      "title": "Clothing Category"
+    },
+    "processButton": {
+      "processImage": "Process Image",
+      "processing": "Processing..."
+    },
+    "imageAlt": {
+      "modelPreview": "Model preview",
+      "clothingOverlay": "Clothing overlay"
+    }
+  },
+  "categories": {
+    "tops": "Tops",
+    "bottoms": "Bottoms",
+    "dresses": "Dresses",
+    "outerwear": "Outerwear",
+    "shoes": "Shoes",
+    "accessories": "Accessories"
+  }
+}

@@ -1,6 +1,9 @@
 // Check if we're in the browser environment
 if (typeof document !== 'undefined') {
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', async () => {
+    // Import i18n client
+    const { default: i18n } = await import('../../i18n/client');
+    
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('a[href^=\"#\"]');
     navLinks.forEach(link => {
@@ -45,20 +48,18 @@ if (typeof document !== 'undefined') {
       window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
         
-        // Change navbar appearance on scroll
+        // Change navbar appearance on scroll using CSS classes
         if (currentScroll > 100) {
-          navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-          navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+          navbar.classList.add('navbar-scrolled');
         } else {
-          navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-          navbar.style.boxShadow = 'none';
+          navbar.classList.remove('navbar-scrolled');
         }
         
         // Hide/show navbar on scroll
         if (currentScroll > lastScroll && currentScroll > 200) {
-          navbar.style.transform = 'translateY(-100%)';
+          navbar.classList.add('navbar-hidden');
         } else {
-          navbar.style.transform = 'translateY(0)';
+          navbar.classList.remove('navbar-hidden');
         }
         
         lastScroll = currentScroll;
@@ -98,9 +99,9 @@ if (typeof document !== 'undefined') {
       });
     });
 
-    // Stats counter animation
+    // Stats counter animation with i18n support
     const statNumbers = document.querySelectorAll('.stat-number');
-    const animateCounter = (element: Element, target: number, suffix: string = '') => {
+    const animateCounter = async (element: Element, target: number, suffix: string = '') => {
       let current = 0;
       const increment = target / 50;
       const timer = setInterval(() => {

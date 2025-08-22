@@ -1,9 +1,13 @@
 ---
 import '../styles/components/model-type-selector.css';
+import { createTranslator, DEFAULT_LANGUAGE } from '../i18n/index';
+
+// Use default language for server-side rendering
+const t = createTranslator(DEFAULT_LANGUAGE);
 ---
 
 <div class="model-type-selector">
-  <h3 class="section-title">Select Model Type</h3>
+  <h3 class="section-title" data-i18n="app.modelType.title">{t('app.modelType.title')}</h3>
   <div class="type-tabs">
     <button class="type-tab active" data-type="female">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -11,7 +15,7 @@ import '../styles/components/model-type-selector.css';
         <path d="m15.5 7.5-3.5 3.5-3.5-3.5"></path>
         <path d="M12 11v10"></path>
       </svg>
-      <span>Female</span>
+      <span data-i18n="app.modelType.female">{t('app.modelType.female')}</span>
     </button>
     <button class="type-tab" data-type="male">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -20,11 +24,12 @@ import '../styles/components/model-type-selector.css';
         <path d="M12 11v10"></path>
         <path d="m8 16 8 0"></path>
       </svg>
-      <span>Male</span>
+      <span data-i18n="app.modelType.male">{t('app.modelType.male')}</span>
     </button>
   </div>
 </div>
 
 <script>
   import '../scripts/components/ModelTypeSelector.ts';
+  import '../i18n/client.ts';
 </script>

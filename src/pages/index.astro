@@ -1,5 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import { detectLanguage, createTranslator } from '../i18n/index';
+
+// Detect language from request headers
+const language = detectLanguage(Astro.request.headers.get('accept-language') || '');
+const t = createTranslator(language);
 ---
 
 <!-- Landing page styles -->
@@ -16,48 +22,48 @@ import Layout from '../layouts/Layout.astro';
             <polyline points="7.5,12 12,15 16.5,12"></polyline>
             <polyline points="12,22 12,15"></polyline>
           </svg>
-          <span class="brand-text">Vtryon</span>
+          <span class="brand-text">{t('common.brand')}</span>
         </div>
         <div class="nav-links">
-          <a href="#features" class="nav-link">Features</a>
-          <a href="#how-it-works" class="nav-link">How It Works</a>
-          <a href="#demo" class="nav-link">Demo</a>
-          <a href="/app" class="cta-button">Try Now</a>
+          <LanguageSwitcher />
+          <a href="#features" class="nav-link" data-i18n="navigation.features">{t('navigation.features')}</a>
+          <a href="#how-it-works" class="nav-link" data-i18n="navigation.howItWorks">{t('navigation.howItWorks')}</a>
+          <a href="#demo" class="nav-link" data-i18n="navigation.demo">{t('navigation.demo')}</a>
+          <a href="/app" class="cta-button" data-i18n="navigation.tryNow">{t('navigation.tryNow')}</a>
         </div>
       </nav>
 
       <div class="hero-content">
         <div class="hero-text">
           <h1 class="hero-title">
-            Experience the Future of
-            <span class="gradient-text">Virtual Fashion</span>
+            <span data-i18n="landing.hero.title">{t('landing.hero.title')}</span>
+            <span class="gradient-text" data-i18n="landing.hero.titleHighlight">{t('landing.hero.titleHighlight')}</span>
           </h1>
-          <p class="hero-subtitle">
-            Try on clothes virtually with our AI-powered platform. 
-            See how you look in any outfit before you buy.
+          <p class="hero-subtitle" data-i18n="landing.hero.subtitle">
+            {t('landing.hero.subtitle')}
           </p>
           <div class="hero-buttons">
             <a href="/app" class="primary-button">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polygon points="5,3 19,12 5,21"></polygon>
               </svg>
-              Start Virtual Try-On
+              <span data-i18n="landing.hero.startTryOn">{t('landing.hero.startTryOn')}</span>
             </a>
             <button class="secondary-button" id="watchDemoBtn">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="10"></circle>
                 <polygon points="10,8 16,12 10,16"></polygon>
               </svg>
-              Watch Demo
+              <span data-i18n="landing.hero.watchDemo">{t('landing.hero.watchDemo')}</span>
             </button>
           </div>
         </div>
         <div class="hero-visual">
           <div class="hero-card">
             <div class="model-preview">
-              <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=300&h=400" alt="Model preview" class="model-img">
+              <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=300&h=400" alt="{t('app.imageAlt.modelPreview')}" class="model-img" data-i18n-alt="app.imageAlt.modelPreview">
               <div class="clothing-overlay">
-                <img src="https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=200&h=200" alt="Clothing overlay" class="clothing-img">
+                <img src="https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=200&h=200" alt="{t('app.imageAlt.clothingOverlay')}" class="clothing-img" data-i18n-alt="app.imageAlt.clothingOverlay">
               </div>
             </div>
           </div>
@@ -73,7 +79,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- Features Section -->
     <section id="features" class="features">
       <div class="container">
-        <h2 class="section-title">Why Choose Vtryon?</h2>
+        <h2 class="section-title" data-i18n="landing.features.title">{t('landing.features.title')}</h2>
         <div class="features-grid">
           <div class="feature-card">
             <div class="feature-icon">
@@ -82,8 +88,8 @@ import Layout from '../layouts/Layout.astro';
                 <circle cx="12" cy="7" r="4"></circle>
               </svg>
             </div>
-            <h3>AI-Powered Models</h3>
-            <p>Choose from diverse AI models and see realistic try-on results with advanced computer vision.</p>
+            <h3 data-i18n="landing.features.aiModels.title">{t('landing.features.aiModels.title')}</h3>
+            <p data-i18n="landing.features.aiModels.description">{t('landing.features.aiModels.description')}</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">
@@ -91,8 +97,8 @@ import Layout from '../layouts/Layout.astro';
                 <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
               </svg>
             </div>
-            <h3>Instant Results</h3>
-            <p>Get immediate visual feedback on how clothes look and fit without waiting or downloading anything.</p>
+            <h3 data-i18n="landing.features.instantResults.title">{t('landing.features.instantResults.title')}</h3>
+            <p data-i18n="landing.features.instantResults.description">{t('landing.features.instantResults.description')}</p>
           </div>
           <div class="feature-card">
             <div class="feature-icon">
@@ -101,8 +107,8 @@ import Layout from '../layouts/Layout.astro';
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
             </div>
-            <h3>Multiple Categories</h3>
-            <p>Try on tops, bottoms, dresses, and complete outfits across different clothing categories.</p>
+            <h3 data-i18n="landing.features.multipleCategories.title">{t('landing.features.multipleCategories.title')}</h3>
+            <p data-i18n="landing.features.multipleCategories.description">{t('landing.features.multipleCategories.description')}</p>
           </div>
         </div>
       </div>
@@ -111,34 +117,34 @@ import Layout from '../layouts/Layout.astro';
     <!-- How It Works Section -->
     <section id="how-it-works" class="how-it-works">
       <div class="container">
-        <h2 class="section-title">How It Works</h2>
+        <h2 class="section-title" data-i18n="landing.howItWorks.title">{t('landing.howItWorks.title')}</h2>
         <div class="steps-grid">
           <div class="step">
             <div class="step-number">1</div>
             <div class="step-content">
-              <h3>Choose Your Model</h3>
-              <p>Select from our diverse collection of AI models or upload your own photo.</p>
+              <h3 data-i18n="landing.howItWorks.step1.title">{t('landing.howItWorks.step1.title')}</h3>
+              <p data-i18n="landing.howItWorks.step1.description">{t('landing.howItWorks.step1.description')}</p>
             </div>
           </div>
           <div class="step">
             <div class="step-number">2</div>
             <div class="step-content">
-              <h3>Browse Clothing</h3>
-              <p>Explore our catalog of clothing items organized by categories and styles.</p>
+              <h3 data-i18n="landing.howItWorks.step2.title">{t('landing.howItWorks.step2.title')}</h3>
+              <p data-i18n="landing.howItWorks.step2.description">{t('landing.howItWorks.step2.description')}</p>
             </div>
           </div>
           <div class="step">
             <div class="step-number">3</div>
             <div class="step-content">
-              <h3>Virtual Try-On</h3>
-              <p>See instant results as our AI overlays the clothing on your selected model.</p>
+              <h3 data-i18n="landing.howItWorks.step3.title">{t('landing.howItWorks.step3.title')}</h3>
+              <p data-i18n="landing.howItWorks.step3.description">{t('landing.howItWorks.step3.description')}</p>
             </div>
           </div>
           <div class="step">
             <div class="step-number">4</div>
             <div class="step-content">
-              <h3>Save & Share</h3>
-              <p>Save your favorite looks and share them with friends or on social media.</p>
+              <h3 data-i18n="landing.howItWorks.step4.title">{t('landing.howItWorks.step4.title')}</h3>
+              <p data-i18n="landing.howItWorks.step4.description">{t('landing.howItWorks.step4.description')}</p>
             </div>
           </div>
         </div>
@@ -148,7 +154,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- Demo Section -->
     <section id="demo" class="demo">
       <div class="container">
-        <h2 class="section-title">See It In Action</h2>
+        <h2 class="section-title" data-i18n="landing.demo.title">{t('landing.demo.title')}</h2>
         <div class="demo-content">
           <div class="demo-video">
             <div class="video-placeholder">
@@ -156,21 +162,21 @@ import Layout from '../layouts/Layout.astro';
                 <circle cx="12" cy="12" r="10"></circle>
                 <polygon points="10,8 16,12 10,16"></polygon>
               </svg>
-              <p>Interactive Demo Coming Soon</p>
+              <p data-i18n="landing.demo.placeholder">{t('landing.demo.placeholder')}</p>
             </div>
           </div>
           <div class="demo-stats">
             <div class="stat">
               <div class="stat-number">10K+</div>
-              <div class="stat-label">Happy Users</div>
+              <div class="stat-label" data-i18n="landing.demo.stats.users">{t('landing.demo.stats.users')}</div>
             </div>
             <div class="stat">
               <div class="stat-number">500+</div>
-              <div class="stat-label">Clothing Items</div>
+              <div class="stat-label" data-i18n="landing.demo.stats.items">{t('landing.demo.stats.items')}</div>
             </div>
             <div class="stat">
               <div class="stat-number">99%</div>
-              <div class="stat-label">Accuracy Rate</div>
+              <div class="stat-label" data-i18n="landing.demo.stats.accuracy">{t('landing.demo.stats.accuracy')}</div>
             </div>
           </div>
         </div>
@@ -181,10 +187,10 @@ import Layout from '../layouts/Layout.astro';
     <section class="cta">
       <div class="container">
         <div class="cta-content">
-          <h2>Ready to Transform Your Shopping Experience?</h2>
-          <p>Join thousands of users who are already using Vtryon to make better fashion choices.</p>
+          <h2 data-i18n="landing.cta.title">{t('landing.cta.title')}</h2>
+          <p data-i18n="landing.cta.subtitle">{t('landing.cta.subtitle')}</p>
           <a href="/app" class="cta-button-large">
-            Get Started Free
+            <span data-i18n="landing.cta.button">{t('landing.cta.button')}</span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="9,18 15,12 9,6"></polyline>
             </svg>
@@ -202,33 +208,33 @@ import Layout from '../layouts/Layout.astro';
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
               </svg>
-              <span>Vtryon</span>
+              <span data-i18n="common.brand">{t('common.brand')}</span>
             </div>
-            <p>The future of virtual fashion technology.</p>
+            <p data-i18n="landing.footer.tagline">{t('landing.footer.tagline')}</p>
           </div>
           <div class="footer-links">
             <div class="link-group">
-              <h4>Product</h4>
-              <a href="/app">Try Now</a>
-              <a href="#features">Features</a>
-              <a href="#demo">Demo</a>
+              <h4 data-i18n="landing.footer.product">{t('landing.footer.product')}</h4>
+              <a href="/app" data-i18n="navigation.tryNow">{t('navigation.tryNow')}</a>
+              <a href="#features" data-i18n="navigation.features">{t('navigation.features')}</a>
+              <a href="#demo" data-i18n="navigation.demo">{t('navigation.demo')}</a>
             </div>
             <div class="link-group">
-              <h4>Company</h4>
-              <a href="#">About</a>
-              <a href="#">Blog</a>
-              <a href="#">Contact</a>
+              <h4 data-i18n="landing.footer.company">{t('landing.footer.company')}</h4>
+              <a href="#" data-i18n="navigation.about">{t('navigation.about')}</a>
+              <a href="#" data-i18n="navigation.blog">{t('navigation.blog')}</a>
+              <a href="#" data-i18n="navigation.contact">{t('navigation.contact')}</a>
             </div>
             <div class="link-group">
-              <h4>Support</h4>
-              <a href="#">Help Center</a>
-              <a href="#">Privacy</a>
-              <a href="#">Terms</a>
+              <h4 data-i18n="landing.footer.support">{t('landing.footer.support')}</h4>
+              <a href="#" data-i18n="navigation.helpCenter">{t('navigation.helpCenter')}</a>
+              <a href="#" data-i18n="navigation.privacy">{t('navigation.privacy')}</a>
+              <a href="#" data-i18n="navigation.terms">{t('navigation.terms')}</a>
             </div>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2024 Vtryon. All rights reserved. Built with Astro & TypeScript.</p>
+          <p data-i18n="landing.footer.copyright">{t('landing.footer.copyright')}</p>
         </div>
       </div>
     </footer>
@@ -238,4 +244,6 @@ import Layout from '../layouts/Layout.astro';
 <script>
   // Landing page interactions
   import '../scripts/components/LandingPage.ts';
+  // Client-side i18n for dynamic language switching
+  import '../i18n/client.ts';
 </script>
