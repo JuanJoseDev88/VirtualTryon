@@ -13,6 +13,9 @@ if (typeof document !== 'undefined') {
         document.dispatchEvent(new CustomEvent('modelTypeChanged', {
           detail: { type: selectedType }
         }));
+        document.dispatchEvent(new CustomEvent('modelSelected', {
+          detail: { type: selectedType }
+        }));
       });
     });
   });

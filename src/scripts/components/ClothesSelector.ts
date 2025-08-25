@@ -4,7 +4,8 @@ if (typeof document !== 'undefined') {
     const clothesGrid = document.querySelector('.clothes-grid') as HTMLElement;
     const emptyState = document.querySelector('.empty-state') as HTMLElement;
     const clothesItems = document.querySelectorAll('.clothes-item');
-    
+    const imageUploadInput = document.getElementById('imageUpload') as HTMLInputElement;
+
     // Update visibility based on active category
     function updateClothesVisibility(activeCategory: string) {
       if (clothesGrid) {
@@ -28,6 +29,9 @@ if (typeof document !== 'undefined') {
     document.addEventListener('categorySelected', (e) => {
       const customEvent = e as CustomEvent;
       updateClothesVisibility(customEvent.detail.category);
+      document.dispatchEvent(new CustomEvent('clothesSelected', {
+        detail: { category: customEvent.detail.category }
+      }));
     });
 
     // Handle try-on button clicks
@@ -42,6 +46,15 @@ if (typeof document !== 'undefined') {
         }));
       });
     });
+
+    // Handle image upload
+    if (imageUploadInput) {
+      imageUploadInput.addEventListener('change', () => {
+        if (imageUploadInput.files && imageUploadInput.files.length > 0) {
+          document.dispatchEvent(new CustomEvent('imageUploaded'));
+        }
+      });
+    }
 
     // Initialize with first category
     updateClothesVisibility('tops');
