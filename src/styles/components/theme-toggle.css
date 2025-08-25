@@ -1,0 +1,49 @@
+/* Theme toggle styles (moved out of language-switcher.css) */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.6rem;
+  background: transparent;
+  border: 1px solid var(--border-muted);
+  color: var(--color-primary);
+  cursor: pointer;
+  border-radius: 0;
+  font-size: 0.875rem;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.12s ease;
+}
+
+/* Ensure consistent icon appearance */
+.theme-toggle svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  fill: none;
+}
+
+.theme-toggle[aria-pressed="true"] {
+  background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
+  color: var(--color-cream);
+}
+
+/* Dark-mode variants are handled by the .dark class in Layout.css */
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    padding: 0.35rem 0.5rem;
+  }
+}
+
+/* Landing-specific positioning: keep toggle at far-right inside .nav-links when used in the landing navbar */
+.nav-links .theme-toggle {
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .nav-links .theme-toggle {
+    order: 99;
+    margin-left: 0;
+    padding: 0.35rem 0.45rem;
+  }
+}

@@ -115,6 +115,13 @@
   gap: 2.5rem;
 }
 
+/* Small spacing between CTA and the theme toggle */
+.nav-links .cta-button {
+  margin-right: 0.75rem;
+}
+
+/* Landing-specific positioning now lives in src/styles/components/theme-toggle.css */
+
 .nav-link {
   text-decoration: none;
   color: var(--color-primary);
@@ -191,7 +198,7 @@
 .title-line-2 {
   font-weight: 400;
   font-size: 5rem;
-  font-style: italic;
+  font-style: bold;
 }
 
 .gradient-text {

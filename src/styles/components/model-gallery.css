@@ -1,8 +1,8 @@
 .vtryon-app .model-gallery {
   padding: var(--space-md);
-  background-color: var(--surface-dark-80);
+  background-color: var(--text-muted-2);
   border-radius: 12px;
-  border: 1px solid rgba(55, 65, 81, 0.5);
+  border: 1px solid var(--surface-muted-50);
 }
 
 .vtryon-app .section-title {
@@ -25,7 +25,7 @@
   transition: all 0.3s ease;
   border: 1px solid transparent;
   position: relative;
-  background-color: rgba(31, 41, 55, 0.5);
+  background-color: var(--surface-muted-50);
 }
 
 .vtryon-app .model-card:not([data-model-type="female"]) {
@@ -43,7 +43,7 @@
 
 .vtryon-app .model-card.selected {
   border-color: var(--accent-success);
-  box-shadow: 0 0 15px rgba(20, 184, 166, 0.3);
+  box-shadow: 0 0 15px var(--selection-color);
 }
 
 .vtryon-app .model-image {
@@ -59,7 +59,7 @@
 .vtryon-app .model-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--surface-dark-80);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,7 +74,7 @@
 .vtryon-app .select-icon {
   width: 40px;
   height: 40px;
-  background-color: rgba(20, 184, 166, 0.8);
+  background-color: var(--accent-success);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -98,7 +98,7 @@
   font-size: 11px;
   padding: 2px 6px;
   border-radius: 4px;
-  background-color: rgba(55, 65, 81, 0.7);
+  background-color: var(--surface-muted-50);
   color: var(--text-muted-1);
   text-transform: capitalize;
 }

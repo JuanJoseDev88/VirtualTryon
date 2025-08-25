@@ -30,7 +30,7 @@
 }
 
 .vtryon-app .process-btn.ready:not(:disabled):hover {
-  box-shadow: 0 0 20px rgba(139, 69, 19, 0.5);
+  box-shadow: 0 0 20px var(--accent-1);
   background: var(--btn-gradient-2);
 }
 
@@ -67,7 +67,7 @@
 .vtryon-app .spinner {
   width: 20px;
   height: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid var(--surface-white-95);
   border-top-color: var(--white);
   border-radius: 50%;
   animation: spin 1s linear infinite;

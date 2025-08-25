@@ -1,5 +1,6 @@
 ---
 import LanguageSwitcher from '../LanguageSwitcher.astro';
+import '../../styles/components/theme-toggle.css';
 import { createTranslator, DEFAULT_LANGUAGE } from '../../i18n/index';
 
 // Use default language for server-side rendering
@@ -21,5 +22,11 @@ const t = createTranslator(DEFAULT_LANGUAGE);
     <a href="#how-it-works" class="nav-link" data-i18n="navigation.howItWorks">{t('navigation.howItWorks')}</a>
     <a href="#demo" class="nav-link" data-i18n="navigation.demo">{t('navigation.demo')}</a>
     <a href="/app" class="cta-button" data-i18n="navigation.tryNow">{t('navigation.tryNow')}</a>
+    <!-- Independent theme toggle for landing navbar (moved to end) -->
+  <button class="theme-toggle" id="themeToggleLanding" title="Toggle light/dark theme" aria-label="Toggle dark mode" aria-pressed="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+      </svg>
+    </button>
   </div>
 </nav>

@@ -91,13 +91,47 @@ html {
 body {
   font-family: var(--font-sans);
   background: var(--bg-gradient);
-  color: var(--white);
+  color: var(--color-primary);
+  /* Smoothly animate variable-driven color/background changes */
+  transition: background 240ms ease-in-out, color 240ms ease-in-out;
   min-height: 100vh;
   overflow-x: hidden;
   font-feature-settings: 'liga' 1, 'kern' 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark theme overrides: toggled by adding .dark to <html> */
+.dark {
+  /* darker background gradient */
+  --bg-gradient: linear-gradient(135deg, #0b1220 0%, #111827 100%);
+
+  /* swap primary/text colors for dark surfaces */
+  --color-primary: #ffffff;
+  --color-cream: #2C1810;
+
+  /* surface adjustments */
+  --surface-cream: rgba(17, 24, 39, 0.9);
+  --surface-white-95: rgba(255, 255, 255, 0.06);
+  --surface-dark-80: rgba(2, 6, 23, 0.9);
+
+  /* borders and muted text suited for dark */
+  --border-muted: rgba(255, 255, 255, 0.06);
+  --border-weak: rgba(255, 255, 255, 0.03);
+  --text-muted-1: #cbd5e1;
+  --text-muted-2: #94a3b8;
+
+  /* scrollbar dark variants */
+  --scroll-track: rgba(255,255,255,0.02);
+  --scroll-thumb-start: #3b82f6;
+  --scroll-thumb-end: #06b6d4;
+  --scroll-thumb-hover-start: #2563eb;
+  --scroll-thumb-hover-end: #0284c7;
+
+  /* shadows softened for dark */
+  --shadow-soft: 0 6px 24px rgba(2,6,23,0.6);
+  --shadow-strong: 0 24px 48px rgba(2,6,23,0.7);
 }
 
 /* Scrollbar styling */

@@ -2,7 +2,7 @@
 .vtryon-app .sidebar {
   width: 380px;
   flex-shrink: 0;
-  background-color: var(--surface-white-95);
+  background-color: var(--color-cream-2);
   border-left: 1px solid var(--border-muted);
   backdrop-filter: blur(10px);
   height: 100%;

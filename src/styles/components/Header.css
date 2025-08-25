@@ -41,3 +41,27 @@
   background-color: rgba(44, 24, 16, 0.1);
   color: var(--color-primary);
 }
+
+/* Ensure theme toggle aligns to the far right and is responsive */
+.vtryon-app .actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vtryon-app .theme-toggle {
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .vtryon-app .actions {
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .vtryon-app .theme-toggle {
+    order: 99;
+    margin-left: 0;
+    padding: 0.35rem 0.45rem;
+  }
+}

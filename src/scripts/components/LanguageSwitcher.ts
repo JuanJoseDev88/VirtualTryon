@@ -9,8 +9,16 @@ if (typeof document !== 'undefined') {
     const dropdown = document.getElementById('langDropdown');
     const currentLangSpan = document.getElementById('currentLang');
     const langOptions = document.querySelectorAll('.lang-option');
-    
-    if (!switcher || !toggle || !dropdown || !currentLangSpan) return;
+
+  // Theme logic moved to standalone module
+  const { initThemeToggle } = await import('./ThemeToggle');
+  initThemeToggle();
+
+    // If language switcher elements are missing, skip language wiring quietly
+    if (!switcher || !toggle || !dropdown || !currentLangSpan) {
+      console.log('Language switcher markup not found; language features skipped.');
+      return;
+    }
     
     // Language display mapping
     const langDisplay: Record<string, string> = {
@@ -99,6 +107,8 @@ if (typeof document !== 'undefined') {
         toggle.focus();
       }
     });
+
+  // ...language-related code continues below
     
     // Keyboard navigation for dropdown
     dropdown.addEventListener('keydown', (e) => {

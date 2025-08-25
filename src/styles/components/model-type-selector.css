@@ -16,7 +16,7 @@
 .vtryon-app .type-tabs {
   display: flex;
   gap: 8px;
-  background-color: rgba(44, 24, 16, 0.05);
+  background-color: var(--muted-2);
   border-radius: 0;
   padding: 4px;
 }
@@ -39,7 +39,7 @@
 }
 
 .vtryon-app .type-tab:hover {
-  background-color: rgba(44, 24, 16, 0.1);
+  background-color: var(--border-muted);
   color: var(--color-primary);
 }
 
