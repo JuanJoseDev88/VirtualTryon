@@ -1,53 +1,51 @@
-/* Landing page styles for Vtryon */
+/* Vtryon Landing Page - Optimized Styles */
 
+/* =============== Base & Utilities =============== */
 .landing-container {
   overflow-x: hidden;
 }
 
-/* Base animations */
-.animate-in {
-  animation: slideInUp 0.8s ease-out forwards;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 3rem;
+  color: var(--color-primary);
+  letter-spacing: 0.5px;
 }
 
+/* =============== Animations =============== */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
-/* Navbar */
+.animate-in {
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+/* =============== Navbar =============== */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -64,7 +62,6 @@
   transition: all 0.3s ease;
 }
 
-/* Navbar scrolled state */
 .navbar.navbar-scrolled {
   background: var(--surface-cream);
   box-shadow: var(--shadow-soft);
@@ -72,40 +69,36 @@
   padding: 1rem 2rem;
 }
 
-/* Update nav-brand colors for scrolled state */
-.navbar.navbar-scrolled .nav-brand {
-  color: var(--color-primary);
-}
-
-.navbar.navbar-scrolled .nav-brand svg {
-  color: var(--accent-1);
-}
-
-/* Update nav-link colors for scrolled state */
+.navbar.navbar-scrolled .nav-brand,
 .navbar.navbar-scrolled .nav-link {
   color: var(--color-primary);
 }
 
+.navbar.navbar-scrolled .nav-brand svg,
 .navbar.navbar-scrolled .nav-link:hover {
   color: var(--accent-1);
 }
 
-/* Navbar hidden state */
 .navbar.navbar-hidden {
   transform: translateY(-100%);
 }
 
-.nav-brand {
+.nav-brand,
+.footer-brand .brand {
   display: flex;
   align-items: center;
   gap: 0.8rem;
   font-weight: 500;
-  font-size: 1.8rem;
   color: var(--color-primary);
   letter-spacing: 1px;
 }
 
-.nav-brand svg {
+.nav-brand {
+  font-size: 1.8rem;
+}
+
+.nav-brand svg,
+.footer-brand .brand svg {
   color: var(--accent-1);
 }
 
@@ -115,12 +108,9 @@
   gap: 2.5rem;
 }
 
-/* Small spacing between CTA and the theme toggle */
 .nav-links .cta-button {
   margin-right: 0.75rem;
 }
-
-/* Landing-specific positioning now lives in src/styles/components/theme-toggle.css */
 
 .nav-link {
   text-decoration: none;
@@ -136,10 +126,15 @@
   color: var(--accent-1);
 }
 
-.cta-button {
-  background: var(--color-primary);
-  color: var(--color-cream);
-  padding: 0.8rem 1.8rem;
+/* =============== Buttons =============== */
+.cta-button,
+.primary-button,
+.secondary-button,
+.cta-button-large {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2.5rem;
   border-radius: 0;
   text-decoration: none;
   font-weight: 500;
@@ -149,14 +144,51 @@
   border: 2px solid transparent;
 }
 
-.cta-button:hover {
+.cta-button {
+  padding: 0.8rem 1.8rem;
+}
+
+.cta-button,
+.primary-button {
+  background: var(--color-primary);
+  color: var(--color-cream);
+}
+
+.cta-button:hover,
+.primary-button:hover {
   background: transparent;
   color: var(--color-primary);
   border-color: var(--color-primary);
   transform: translateY(-2px);
 }
 
-/* Hero Section */
+.secondary-button {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.secondary-button:hover {
+  background: var(--color-primary);
+  color: var(--color-cream);
+}
+
+.cta-button-large {
+  background: var(--color-cream);
+  color: var(--color-primary);
+  font-size: 1.125rem;
+  padding: 1.25rem 2.5rem;
+}
+
+.cta-button-large:hover {
+  background: transparent;
+  color: var(--color-cream);
+  border-color: var(--color-cream);
+  transform: translateY(-2px);
+}
+
+/* =============== Hero Section =============== */
 .hero {
   min-height: 100vh;
   background: var(--bg-gradient);
@@ -191,13 +223,13 @@
 
 .title-line-1 {
   font-weight: 300;
-  font-size: 3.5rem;
+  font-size: 5rem;
   margin-bottom: 0.5rem;
 }
 
 .title-line-2 {
   font-weight: 400;
-  font-size: 5rem;
+  font-size: 7rem;
   font-style: bold;
 }
 
@@ -223,52 +255,6 @@
   flex-wrap: wrap;
 }
 
-.primary-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
-  background: var(--color-primary);
-  color: var(--color-cream);
-  padding: 1.2rem 2.5rem;
-  border-radius: 0;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.primary-button:hover {
-  background: transparent;
-  color: var(--color-primary);
-  border-color: var(--color-primary);
-  transform: translateY(-2px);
-}
-
-.secondary-button {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
-  padding: 1rem 2rem;
-  border-radius: 0;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.secondary-button:hover {
-  background: var(--color-primary);
-  color: var(--color-cream);
-}
-
-/* Hero Visual */
 .hero-visual {
   position: relative;
   display: flex;
@@ -295,40 +281,7 @@
   object-position: center;
 }
 
-.image-overlay {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 300px;
-  height: 200px;
-  background: rgba(245, 230, 211, 0.95);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;
-}
-
-.overlay-text {
-  text-align: center;
-  color: var(--color-primary);
-}
-
-.overlay-line-1 {
-  display: block;
-  font-size: 1.2rem;
-  font-weight: 300;
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
-}
-
-.overlay-line-2 {
-  display: block;
-  font-size: 2.5rem;
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: 1px;
-}
-
+/* Geometric Shapes */
 .geometric-shapes {
   position: absolute;
   width: 100%;
@@ -368,55 +321,33 @@
   background: rgba(245, 230, 211, 0.5);
 }
 
-/* Responsive Design */
-@media (max-width: 968px) {
-  .hero-content {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    text-align: center;
-  }
-  
-  .hero-visual {
-    order: -1;
-    height: 50vh;
-    min-height: 400px;
-  }
-  
-  .hero-title {
-    font-size: 3rem;
-  }
-  
-  .title-line-1 {
-    font-size: 2.5rem;
-  }
-  
-  .title-line-2 {
-    font-size: 3.5rem;
-  }
-}
-
-/* Sections */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: 500;
-  margin-bottom: 3rem;
-  color: var(--color-primary);
-  letter-spacing: 0.5px;
-}
-
-/* Features Section */
-.features {
+/* =============== Section Layouts =============== */
+.features,
+.how-it-works,
+.demo,
+.cta {
   padding: 6rem 0;
+}
+
+.features,
+.demo {
   background: var(--color-cream);
 }
 
+.how-it-works {
+  background: var(--white);
+}
+
+.demo {
+  background: var(--surface-cream);
+}
+
+.cta {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-cream);
+}
+
+/* =============== Features Grid =============== */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -438,39 +369,42 @@
   box-shadow: 0 20px 40px rgba(44, 24, 16, 0.15);
 }
 
-.feature-icon {
+.feature-icon,
+.step-number {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
   background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 50%, var(--accent-3) 100%);
   border-radius: 0;
-  margin-bottom: 1.5rem;
   color: var(--color-cream);
 }
 
-.feature-card h3 {
-  font-size: 1.5rem;
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1.5rem;
+}
+
+.feature-card h3,
+.step h3 {
   font-weight: 500;
   margin-bottom: 1rem;
   color: var(--color-primary);
   letter-spacing: 0.5px;
 }
 
-.feature-card p {
-  color: #5D4037;
+.feature-card h3 {
+  font-size: 1.5rem;
+}
+
+.feature-card p,
+.step p {
   color: var(--muted-1);
   line-height: 1.6;
   font-weight: 300;
 }
 
-/* How It Works Section */
-.how-it-works {
-  padding: 6rem 0;
-  background: var(--white);
-}
-
+/* =============== How It Works =============== */
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -482,14 +416,8 @@
 }
 
 .step-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 50%, var(--accent-3) 100%);
-  color: var(--color-cream);
-  border-radius: 0;
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
@@ -497,24 +425,9 @@
 
 .step h3 {
   font-size: 1.25rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-  color: var(--color-primary);
-  letter-spacing: 0.5px;
 }
 
-.step p {
-  color: var(--muted-1);
-  line-height: 1.6;
-  font-weight: 300;
-}
-
-/* Demo Section */
-.demo {
-  padding: 6rem 0;
-  background: var(--surface-cream);
-}
-
+/* =============== Demo Section =============== */
 .demo-content {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -564,13 +477,7 @@
   font-size: 0.9rem;
 }
 
-/* CTA Section */
-.cta {
-  padding: 6rem 0;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  color: var(--color-cream);
-}
-
+/* =============== CTA Section =============== */
 .cta-content {
   text-align: center;
 }
@@ -589,31 +496,7 @@
   font-weight: 300;
 }
 
-.cta-button-large {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: var(--color-cream);
-  color: var(--color-primary);
-  padding: 1.25rem 2.5rem;
-  border-radius: 0;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.125rem;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.cta-button-large:hover {
-  background: transparent;
-  color: var(--color-cream);
-  border-color: var(--color-cream);
-  transform: translateY(-2px);
-}
-
-/* Footer */
+/* =============== Footer =============== */
 .footer {
   background: var(--color-primary);
   color: var(--color-cream);
@@ -628,17 +511,8 @@
 }
 
 .footer-brand .brand {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  font-weight: 500;
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  letter-spacing: 1px;
-}
-
-.footer-brand .brand svg {
-  color: var(--accent-1);
 }
 
 .footer-brand p {
@@ -653,7 +527,7 @@
   gap: 2rem;
 }
 
-link-group h4 {
+.link-group h4 {
   font-weight: 500;
   margin-bottom: 1rem;
   color: var(--color-cream);
@@ -683,7 +557,7 @@ link-group h4 {
   font-weight: 300;
 }
 
-/* Responsive Design */
+/* =============== Responsive Design =============== */
 @media (max-width: 968px) {
   .hero-content {
     grid-template-columns: 1fr;
@@ -698,44 +572,16 @@ link-group h4 {
     min-height: 400px;
   }
   
-  .hero-title {
-    font-size: 3rem;
-  }
-  
-  .title-line-1 {
-    font-size: 2.5rem;
-  }
-  
-  .title-line-2 {
-    font-size: 3.5rem;
-  }
-  
-  .promotional-container {
-    max-width: 400px;
-  }
-  
-  .image-overlay {
-    width: 250px;
-    height: 150px;
-  }
-  
-  .overlay-line-2 {
-    font-size: 2rem;
-  }
+  .hero-title { font-size: 3rem; }
+  .title-line-1 { font-size: 2.5rem; }
+  .title-line-2 { font-size: 3.5rem; }
+  .promotional-container { max-width: 400px; }
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    padding: 1rem;
-  }
-  
-  .nav-links {
-    gap: 1rem;
-  }
-  
-  .nav-link {
-    display: none;
-  }
+  .navbar { padding: 1rem; }
+  .nav-links { gap: 1rem; }
+  .nav-link { display: none; }
   
   .hero-content {
     padding: 5rem 1rem 3rem;
@@ -747,92 +593,32 @@ link-group h4 {
     min-height: 300px;
   }
   
-  .hero-title {
-    font-size: 2.5rem;
-  }
+  .hero-title { font-size: 2.5rem; }
+  .title-line-1 { font-size: 2rem; }
+  .title-line-2 { font-size: 2.8rem; }
+  .hero-buttons { justify-content: center; }
+  .promotional-container { max-width: 300px; }
   
-  .title-line-1 {
-    font-size: 2rem;
-  }
-  
-  .title-line-2 {
-    font-size: 2.8rem;
-  }
-  
-  .hero-buttons {
-    justify-content: center;
-  }
-  
-  .promotional-container {
-    max-width: 300px;
-  }
-  
-  .image-overlay {
-    width: 200px;
-    height: 120px;
-  }
-  
-  .overlay-line-1 {
-    font-size: 1rem;
-  }
-  
-  .overlay-line-2 {
-    font-size: 1.8rem;
-  }
-  
-  .demo-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
+  .demo-content,
+  .footer-content,
   .footer-links {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 2rem;
-  }
-  
-  .title-line-1 {
-    font-size: 1.8rem;
-  }
-  
-  .title-line-2 {
-    font-size: 2.2rem;
-  }
+  .hero-title { font-size: 2rem; }
+  .title-line-1 { font-size: 1.8rem; }
+  .title-line-2 { font-size: 2.2rem; }
   
   .hero-visual {
     height: 35vh;
     min-height: 250px;
   }
   
-  .promotional-container {
-    max-width: 250px;
-  }
-  
-  .image-overlay {
-    width: 150px;
-    height: 100px;
-  }
-  
-  .overlay-line-1 {
-    font-size: 0.9rem;
-  }
-  
-  .overlay-line-2 {
-    font-size: 1.5rem;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
+  .promotional-container { max-width: 250px; }
+  .section-title { font-size: 2rem; }
   
   .features-grid,
   .steps-grid {

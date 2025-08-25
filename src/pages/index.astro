@@ -13,8 +13,6 @@ import { detectLanguage, createTranslator } from '../i18n/index';
 const language = detectLanguage(Astro.request.headers.get('accept-language') || '');
 const t = createTranslator(language);
 ---
-
-<!-- Landing page styles -->
 <link rel="stylesheet" href="/src/styles/pages/index.css">
 
 <Layout>
@@ -24,27 +22,15 @@ const t = createTranslator(language);
       <LandingNavbar />
       <HeroSection />
     </header>
-
-    <!-- Features Section -->
     <FeaturesSection />
-
-    <!-- How It Works Section -->
     <HowItWorksSection />
-
-    <!-- Demo Section -->
     <DemoSection />
-
-    <!-- CTA Section -->
     <CTASection />
-
-    <!-- Footer -->
     <LandingFooter />
   </div>
 </Layout>
 
 <script>
-  // Landing page interactions
   import '../scripts/components/LandingPage.ts';
-  // Client-side i18n for dynamic language switching
   import '../i18n/client.ts';
 </script>
