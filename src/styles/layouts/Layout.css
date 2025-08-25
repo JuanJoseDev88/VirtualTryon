@@ -5,14 +5,93 @@
   box-sizing: border-box;
 }
 
+/* Design tokens / global variables extracted from pages/index.css */
+:root {
+  /* Fonts */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Background palette (dark) */
+  --color-bg-900: #2C1810;
+  --color-bg-800: #F5E6D3;
+  --color-bg-700: #c9843f;
+  --bg-gradient: linear-gradient(135deg, var(--color-bg-900) 0%, var(--color-bg-800) 50%, var(--color-bg-700) 100%);
+
+  /* Brand / primary palette (used on landing) */
+  --color-primary: #2C1810; /* dark brown */
+  --color-cream: #F5E6D3; /* light cream */
+  --color-cream-2: #E8D5C4;
+  --color-cream-3: #DCC5B0;
+
+  /* Accents / gradients */
+  --accent-1: #8B4513;
+  --accent-2: #A0522D;
+  --accent-3: #CD853F;
+
+  /* Muted / text */
+  --muted-1: #5D4037;
+  --muted-2: rgba(44, 24, 16, 0.1);
+
+  /* Utilities */
+  --white: #ffffff;
+  --container-max-width: 1440px;
+  --container-padding: 24px;
+  --radius-none: 0;
+
+  /* Scrollbar */
+  --scroll-track: rgba(255, 255, 255, 0.1);
+  --scroll-thumb-start: #14b8a6;
+  --scroll-thumb-end: #06b6d4;
+  --scroll-thumb-hover-start: #0d9488;
+  --scroll-thumb-hover-end: #0284c7;
+
+  /* Interaction */
+  --focus-color: #14b8a6;
+  --selection-color: rgba(20, 184, 166, 0.3);
+
+  /* Surfaces & borders */
+  --surface-cream: rgba(245, 230, 211, 0.95);
+  --surface-white-95: rgba(255, 255, 255, 0.95);
+  --surface-dark-80: rgba(17, 24, 39, 0.8);
+  --surface-muted-50: rgba(31, 41, 55, 0.5);
+  --border-muted: rgba(44, 24, 16, 0.1);
+  --border-weak: rgba(44, 24, 16, 0.05);
+
+  /* Text / muted colors */
+  --text-muted-1: #9ca3af;
+  --text-muted-2: #6b7280;
+
+  /* Success / action */
+  --accent-success: #14b8a6;
+
+  /* Additional accents */
+  --accent-blue: #60a5fa;
+  --color-primary-dark: #3D2317;
+
+  /* Button / gradient helpers */
+  --btn-gradient-1: linear-gradient(to right, var(--accent-1), var(--accent-2));
+  --btn-gradient-2: linear-gradient(to right, var(--accent-2), var(--accent-3));
+
+  /* Shadows */
+  --shadow-soft: 0 4px 20px rgba(44, 24, 16, 0.08);
+  --shadow-strong: 0 20px 40px rgba(44, 24, 16, 0.15);
+
+  /* Spacing scale */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+}
+
 html {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-sans);
   scroll-behavior: smooth;
 }
 
 body {
-  background: linear-gradient(135deg, #0c0a15 0%, #1a1625 50%, #2d1b3d 100%);
-  color: #ffffff;
+  font-family: var(--font-sans);
+  background: var(--bg-gradient);
+  color: var(--white);
   min-height: 100vh;
   overflow-x: hidden;
   font-feature-settings: 'liga' 1, 'kern' 1;
@@ -27,34 +106,34 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--scroll-track);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #14b8a6, #06b6d4);
+  background: linear-gradient(45deg, var(--scroll-thumb-start), var(--scroll-thumb-end));
   border-radius: 4px;
   transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #0d9488, #0284c7);
+  background: linear-gradient(45deg, var(--scroll-thumb-hover-start), var(--scroll-thumb-hover-end));
 }
 
 /* Selection styling */
 ::selection {
-  background: rgba(20, 184, 166, 0.3);
-  color: #ffffff;
+  background: var(--selection-color);
+  color: var(--white);
 }
 
 ::-moz-selection {
-  background: rgba(20, 184, 166, 0.3);
-  color: #ffffff;
+  background: var(--selection-color);
+  color: var(--white);
 }
 
 /* Focus styles */
 :focus {
-  outline: 2px solid #14b8a6;
+  outline: 2px solid var(--focus-color);
   outline-offset: 2px;
 }
 
@@ -100,12 +179,9 @@ img {
   }
 }
 
-/* Print styles */
-@media print {
-  * {
-    background: transparent !important;
-    color: black !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
+/* Container utility (moved in from src/styles/global.css) */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
 }

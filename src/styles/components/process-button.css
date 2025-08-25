@@ -1,20 +1,20 @@
-.process-button-container {
-  padding: 16px;
-  background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 0;
-  border: 1px solid rgba(44, 24, 16, 0.1);
-  margin-top: 16px;
+.vtryon-app .process-button-container {
+  padding: var(--space-md);
+  background-color: var(--surface-white-95);
+  border-radius: var(--radius-none);
+  border: 1px solid var(--border-muted);
+  margin-top: var(--space-md);
 }
 
-.process-btn {
+.vtryon-app .process-btn {
   width: 100%;
   padding: 12px;
   font-size: 16px;
   font-weight: 500;
-  color: #F5E6D3;
-  background: linear-gradient(to right, #8B4513, #A0522D);
+  color: var(--color-cream);
+  background: var(--btn-gradient-1);
   border: none;
-  border-radius: 0;
+  border-radius: var(--radius-none);
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
@@ -23,18 +23,18 @@
   text-transform: uppercase;
 }
 
-.process-btn:disabled {
-  background: #5D4037;
-  color: #DCC5B0;
+.vtryon-app .process-btn:disabled {
+  background: var(--muted-1);
+  color: var(--color-cream-3);
   cursor: not-allowed;
 }
 
-.process-btn.ready:not(:disabled):hover {
+.vtryon-app .process-btn.ready:not(:disabled):hover {
   box-shadow: 0 0 20px rgba(139, 69, 19, 0.5);
-  background: linear-gradient(to right, #A0522D, #CD853F);
+  background: var(--btn-gradient-2);
 }
 
-.btn-content {
+.vtryon-app .btn-content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,11 +42,11 @@
   transition: opacity 0.3s ease;
 }
 
-.process-btn.processing .btn-content {
+.vtryon-app .process-btn.processing .btn-content {
   opacity: 0;
 }
 
-.loading-spinner {
+.vtryon-app .loading-spinner {
   position: absolute;
   top: 0;
   left: 0;
@@ -60,15 +60,15 @@
   transition: opacity 0.3s ease;
 }
 
-.process-btn.processing .loading-spinner {
+.vtryon-app .process-btn.processing .loading-spinner {
   opacity: 1;
 }
 
-.spinner {
+.vtryon-app .spinner {
   width: 20px;
   height: 20px;
   border: 2px solid rgba(255, 255, 255, 0.3);
-  border-top-color: #ffffff;
+  border-top-color: var(--white);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -79,11 +79,11 @@
   }
 }
 
-.process-btn.completed .btn-content {
+.vtryon-app .process-btn.completed .btn-content {
   opacity: 0;
 }
 
-.process-btn.completed:after {
+.vtryon-app .process-btn.completed:after {
   content: '✓ Completed';
   position: absolute;
   top: 0;

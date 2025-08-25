@@ -1,13 +1,11 @@
-/* App page styles for Virtual Try-On Studio */
-
-.app-container {
+.vtryon-app .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(135deg, #F5E6D3 0%, #E8D5C4 50%, #DCC5B0 100%);
+  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-cream-2) 50%, var(--color-cream-3) 100%);
 }
 
-.main-content {
+.vtryon-app .main-content {
   display: flex;
   flex: 1;
   gap: 2rem;
@@ -18,8 +16,9 @@
 }
 
 /* Responsive layout */
+
 @media (max-width: 768px) {
-  .main-content {
+  .vtryon-app .main-content {
     flex-direction: column;
     padding: 1rem;
     gap: 1rem;
@@ -27,24 +26,27 @@
 }
 
 @media (max-width: 480px) {
-  .main-content {
+  .vtryon-app .main-content {
     padding: 0.5rem;
   }
 }
 
 /* Loading states */
-.loading {
+
+.vtryon-app .loading {
   opacity: 0.7;
   pointer-events: none;
 }
 
-/* Smooth transitions */
-* {
+/* Smooth transitions - scoped */
+
+.vtryon-app * {
   transition: all 0.3s ease;
 }
 
-/* Focus styles for accessibility */
-*:focus {
-  outline: 2px solid #8B4513;
+/* Focus styles for accessibility - scoped to app */
+
+.vtryon-app *:focus {
+  outline: 2px solid var(--accent-1);
   outline-offset: 2px;
 }

@@ -1,9 +1,9 @@
-.language-switcher {
+.vtryon-app .language-switcher {
   position: relative;
   display: inline-block;
 }
 
-.lang-toggle {
+.vtryon-app .lang-toggle {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -20,10 +20,10 @@
 }
 
 /* Language switcher in scrolled navbar */
-.navbar.navbar-scrolled .lang-toggle {
+.landing .navbar.navbar-scrolled .lang-toggle {
   background: rgba(44, 24, 16, 0.05);
   border: 1px solid rgba(44, 24, 16, 0.1);
-  color: #2C1810;
+  color: var(--color-primary);
 }
 
 .lang-toggle:hover {
@@ -86,7 +86,7 @@
   padding: 0.75rem 1rem;
   background: none;
   border: none;
-  color: #2C1810;
+  color: var(--color-primary);
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
@@ -97,12 +97,12 @@
 
 .lang-option:hover {
   background: rgba(139, 69, 19, 0.1);
-  color: #8B4513;
+  color: var(--accent-1);
 }
 
 .lang-option.active {
   background: rgba(139, 69, 19, 0.15);
-  color: #8B4513;
+  color: var(--accent-1);
   font-weight: 600;
 }
 
@@ -124,17 +124,17 @@
   }
   
   .lang-option {
-    color: #e5e7eb;
+    color: var(--surface-white-95);
   }
-  
+
   .lang-option:hover {
     background: rgba(59, 130, 246, 0.15);
-    color: #60a5fa;
+    color: var(--accent-blue);
   }
-  
+
   .lang-option.active {
     background: rgba(59, 130, 246, 0.2);
-    color: #60a5fa;
+    color: var(--accent-blue);
   }
 }
 

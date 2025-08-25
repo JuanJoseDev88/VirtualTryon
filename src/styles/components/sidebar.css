@@ -1,31 +1,36 @@
-.sidebar {
+
+.vtryon-app .sidebar {
   width: 380px;
   flex-shrink: 0;
-  background-color: rgba(255, 255, 255, 0.95);
-  border-left: 1px solid rgba(44, 24, 16, 0.1);
+  background-color: var(--surface-white-95);
+  border-left: 1px solid var(--border-muted);
   backdrop-filter: blur(10px);
   height: 100%;
   overflow-y: auto;
 }
 
-.sidebar-content {
-  padding: 16px;
+
+.vtryon-app .sidebar-content {
+  padding: var(--space-md);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--space-md);
 }
 
-/* Custom scrollbar for webkit browsers */
-.sidebar::-webkit-scrollbar {
+/* Custom scrollbar for webkit browsers (scoped to app) */
+.vtryon-app .sidebar::-webkit-scrollbar {
   width: 8px;
 }
-.sidebar::-webkit-scrollbar-track {
-  background: rgba(44, 24, 16, 0.1);
+
+.vtryon-app .sidebar::-webkit-scrollbar-track {
+  background: var(--scroll-track);
 }
-.sidebar::-webkit-scrollbar-thumb {
-  background: #8B4513;
+
+.vtryon-app .sidebar::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--accent-1), var(--accent-2));
   border-radius: 4px;
 }
-.sidebar::-webkit-scrollbar-thumb:hover {
-  background: #A0522D;
+
+.vtryon-app .sidebar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, var(--accent-2), var(--accent-3));
 }

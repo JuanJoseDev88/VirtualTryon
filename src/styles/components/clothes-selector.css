@@ -1,25 +1,25 @@
-.clothes-selector {
-  padding: 16px;
-  background-color: rgba(17, 24, 39, 0.8);
+.vtryon-app .clothes-selector {
+  padding: var(--space-md);
+  background-color: var(--surface-dark-80);
   border-radius: 12px;
   border: 1px solid rgba(55, 65, 81, 0.5);
   height: 100%;
   display: flex;
   flex-direction: column;
   backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-soft);
 }
 
-.section-title {
+.vtryon-app .section-title {
   font-size: 16px;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--white);
   margin-bottom: 12px;
   padding-bottom: 8px;
   border-bottom: 1px solid rgba(55, 65, 81, 0.5);
 }
 
-.clothes-grid {
+.vtryon-app .clothes-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
@@ -28,22 +28,22 @@
 }
 
 /* Custom scrollbar for webkit browsers */
-.clothes-grid::-webkit-scrollbar {
+.vtryon-app .clothes-grid::-webkit-scrollbar {
   width: 6px;
 }
-.clothes-grid::-webkit-scrollbar-track {
+.vtryon-app .clothes-grid::-webkit-scrollbar-track {
   background: rgba(55, 65, 81, 0.3);
   border-radius: 3px;
 }
-.clothes-grid::-webkit-scrollbar-thumb {
-  background: #14b8a6;
+.vtryon-app .clothes-grid::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--scroll-thumb-start), var(--scroll-thumb-end));
   border-radius: 3px;
 }
-.clothes-grid::-webkit-scrollbar-thumb:hover {
-  background: #10a08f;
+.vtryon-app .clothes-grid::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, var(--scroll-thumb-hover-start), var(--scroll-thumb-hover-end));
 }
 
-.clothes-item {
+.vtryon-app .clothes-item {
   background-color: rgba(31, 41, 55, 0.5);
   border-radius: 8px;
   overflow: hidden;
@@ -53,19 +53,19 @@
   position: relative;
 }
 
-.clothes-item:hover {
+.vtryon-app .clothes-item:hover {
   transform: translateY(-4px);
   border-color: rgba(20, 184, 166, 0.5);
   box-shadow: 0 8px 25px rgba(20, 184, 166, 0.15);
 }
 
-.item-image {
+.vtryon-app .item-image {
   width: 100%;
   padding-top: 100%; /* 1:1 Aspect Ratio */
   position: relative;
 }
 
-.item-image img {
+.vtryon-app .item-image img {
   position: absolute;
   top: 0;
   left: 0;
@@ -74,7 +74,7 @@
   object-fit: cover;
 }
 
-.item-overlay {
+.vtryon-app .item-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(20, 184, 166, 0.9), rgba(6, 182, 212, 0.9));
@@ -85,11 +85,11 @@
   transition: opacity 0.3s ease;
 }
 
-.clothes-item:hover .item-overlay {
+.vtryon-app .clothes-item:hover .item-overlay {
   opacity: 1;
 }
 
-.try-on-btn {
+.vtryon-app .try-on-btn {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -97,7 +97,7 @@
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
-  color: white;
+  color: var(--white);
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
@@ -105,48 +105,48 @@
   backdrop-filter: blur(10px);
 }
 
-.try-on-btn:hover {
+.vtryon-app .try-on-btn:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: scale(1.05);
 }
 
-.item-info {
+.vtryon-app .item-info {
   padding: 8px 0;
   text-align: center;
 }
 
-.item-name {
+.vtryon-app .item-name {
   font-size: 12px;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--white);
   margin-bottom: 2px;
   line-height: 1.3;
 }
 
-.item-price {
+.vtryon-app .item-price {
   font-size: 11px;
-  color: #14b8a6;
+  color: var(--accent-success);
   font-weight: 600;
 }
 
-.empty-state {
+.vtryon-app .empty-state {
   display: none; /* Hidden by default */
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: var(--space-md);
   padding: 40px;
-  color: #6b7280;
+  color: var(--text-muted-2);
   text-align: center;
   min-height: 200px;
   flex-grow: 1;
 }
 
-.empty-state svg {
+.vtryon-app .empty-state svg {
   opacity: 0.5;
 }
 
-.empty-state p {
+.vtryon-app .empty-state p {
   font-size: 14px;
 }
 

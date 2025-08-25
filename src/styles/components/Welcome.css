@@ -41,10 +41,10 @@ h1 {
 	display: flex;
 	align-items: center;
 	padding: 10px 12px;
-	color: #111827;
+	color: var(--color-primary);
 	text-decoration: none;
 	transition: color 0.2s;
-}
+	}
 
 #links a:hover {
 	color: rgb(78, 80, 86);
@@ -56,7 +56,8 @@ h1 {
 }
 
 #links a.button {
-	color: white;
+	color: var(--white);
+	/* Keep decorative gradient for CTA button in welcome; this is intentionally unique */
 	background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
 	box-shadow:
 		inset 0 0 0 1px rgba(255, 255, 255, 0.12),
@@ -73,6 +74,7 @@ pre {
 	font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas,
 		'DejaVu Sans Mono', monospace;
 	font-weight: normal;
+	/* Keep decorative gradient for code block */
 	background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -83,12 +85,12 @@ pre {
 h2 {
 	margin: 0 0 1em;
 	font-weight: normal;
-	color: #111827;
+	color: var(--color-primary);
 	font-size: 20px;
 }
 
 p {
-	color: #4b5563;
+	color: var(--text-muted-2);
 	font-size: 16px;
 	line-height: 24px;
 	letter-spacing: -0.006em;
@@ -106,10 +108,10 @@ code {
 }
 
 .box {
-	padding: 16px;
-	background: rgba(255, 255, 255, 1);
+	padding: var(--space-md);
+	background: var(--surface-white-95);
 	border-radius: 16px;
-	border: 1px solid white;
+	border: 1px solid var(--surface-white-95);
 }
 
 #news {

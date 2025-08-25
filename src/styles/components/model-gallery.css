@@ -1,24 +1,24 @@
-.model-gallery {
-  padding: 16px;
-  background-color: rgba(17, 24, 39, 0.8);
+.vtryon-app .model-gallery {
+  padding: var(--space-md);
+  background-color: var(--surface-dark-80);
   border-radius: 12px;
   border: 1px solid rgba(55, 65, 81, 0.5);
 }
 
-.section-title {
+.vtryon-app .section-title {
   font-size: 16px;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--white);
   margin-bottom: 12px;
 }
 
-.models-grid {
+.vtryon-app .models-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
-.model-card {
+.vtryon-app .model-card {
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
@@ -28,35 +28,35 @@
   background-color: rgba(31, 41, 55, 0.5);
 }
 
-.model-card:not([data-model-type="female"]) {
+.vtryon-app .model-card:not([data-model-type="female"]) {
   display: none;
 }
 
-.models-grid[data-current-type="male"] .model-card:not([data-model-type="male"]) {
+.vtryon-app .models-grid[data-current-type="male"] .model-card:not([data-model-type="male"]) {
   display: none;
 }
 
-.models-grid[data-current-type="male"] .model-card[data-model-type="male"] {
+.vtryon-app .models-grid[data-current-type="male"] .model-card[data-model-type="male"] {
   display: block;
 }
 
 
-.model-card.selected {
-  border-color: #14b8a6;
+.vtryon-app .model-card.selected {
+  border-color: var(--accent-success);
   box-shadow: 0 0 15px rgba(20, 184, 166, 0.3);
 }
 
-.model-image {
+.vtryon-app .model-image {
   position: relative;
 }
 
-.model-image img {
+.vtryon-app .model-image img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.model-overlay {
+.vtryon-app .model-overlay {
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
@@ -67,11 +67,11 @@
   transition: opacity 0.3s ease;
 }
 
-.model-card.selected .model-overlay {
+.vtryon-app .model-card.selected .model-overlay {
   opacity: 1;
 }
 
-.select-icon {
+.vtryon-app .select-icon {
   width: 40px;
   height: 40px;
   background-color: rgba(20, 184, 166, 0.8);
@@ -79,26 +79,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--white);
 }
 
-.model-info {
+.vtryon-app .model-info {
   padding: 12px;
   text-align: center;
 }
 
-.model-name {
+.vtryon-app .model-name {
   font-size: 14px;
   font-weight: 600;
-  color: #ffffff;
+  color: var(--white);
   margin-bottom: 4px;
 }
 
-.model-type-badge {
+.vtryon-app .model-type-badge {
   font-size: 11px;
   padding: 2px 6px;
   border-radius: 4px;
   background-color: rgba(55, 65, 81, 0.7);
-  color: #9ca3af;
+  color: var(--text-muted-1);
   text-transform: capitalize;
 }
