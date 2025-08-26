@@ -1,30 +1,51 @@
 ---
-import '../styles/components/process-button.css';
-import { createTranslator, DEFAULT_LANGUAGE } from '../i18n/index';
+import "../styles/components/process-button.css";
+import { createTranslator, DEFAULT_LANGUAGE } from "../i18n/index";
 
 // Use default language for server-side rendering
 // Client-side will update dynamically
 const t = createTranslator(DEFAULT_LANGUAGE);
+
+// Get API key from environment (server-side)
+const fashnApiKey = import.meta.env.VITE_FASHN_API_KEY;
 ---
 
 <div class="process-button-container">
   <button class="process-btn" id="processBtn" disabled>
     <div class="btn-content">
-      <svg class="process-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+      <svg
+        class="process-icon"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+        ></path>
         <polyline points="7.5,12 12,15 16.5,12"></polyline>
         <polyline points="12,22 12,15"></polyline>
       </svg>
-      <span class="btn-text" data-i18n="app.processButton.processImage">{t('app.processButton.processImage')}</span>
+      <span class="btn-text" data-i18n="app.processButton.processImage"
+        >{t("app.processButton.processImage")}</span
+      >
     </div>
     <div class="loading-spinner">
       <div class="spinner"></div>
-      <span data-i18n="app.processButton.processing">{t('app.processButton.processing')}</span>
+      <span data-i18n="app.processButton.processing"
+        >{t("app.processButton.processing")}</span
+      >
     </div>
   </button>
+
+  <!-- Hidden config element to pass API key to client-side -->
+  <div id="fashn-config" data-api-key={fashnApiKey} style="display: none;">
+  </div>
 </div>
 
 <script>
-  import '../scripts/components/ProcessButton.ts';
-  import '../i18n/client.ts';
+  import "../scripts/components/ProcessButton.ts";
+  import "../i18n/client.ts";
 </script>

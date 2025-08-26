@@ -1,39 +1,7 @@
 ---
 import '../styles/components/model-gallery.css';
 
-interface Model {
-  id: string;
-  name: string;
-  type: 'female' | 'male';
-  image: string;
-}
-
-const models: Model[] = [
-  {
-    id: '1',
-    name: 'Sarah',
-    type: 'female',
-    image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=300&h=400'
-  },
-  {
-    id: '2', 
-    name: 'Emma',
-    type: 'female',
-    image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=300&h=400'
-  },
-  {
-    id: '3',
-    name: 'Michael',
-    type: 'male', 
-    image: 'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=300&h=400'
-  },
-  {
-    id: '4',
-    name: 'David',
-    type: 'male',
-    image: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=300&h=400'
-  }
-];
+import { models } from '../data/models.ts';
 ---
 
 <div class="model-gallery">
@@ -54,10 +22,6 @@ const models: Model[] = [
               </svg>
             </div>
           </div>
-        </div>
-        <div class="model-info">
-          <h4 class="model-name">{model.name}</h4>
-          <span class="model-type-badge">{model.type}</span>
         </div>
       </div>
     ))}

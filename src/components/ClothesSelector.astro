@@ -1,6 +1,9 @@
 ---
-import '../styles/components/clothes-selector.css';
-import '../styles/components/upload-button.css';
+import "../styles/components/clothes-selector.css";
+import "../styles/components/upload-button.css";
+
+const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
 
 interface ClothingItem {
   id: string;
@@ -12,46 +15,56 @@ interface ClothingItem {
 
 const clothingItems: ClothingItem[] = [
   {
-    id: '1',
-    name: 'Classic White Shirt',
-    category: 'tops',
-    image: 'https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
-    price: '$49'
+    id: "1",
+    name: "Classic White Shirt",
+    category: "tops",
+    image:
+      "https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
+    price: "$49",
   },
   {
-    id: '2',
-    name: 'Summer Blouse',
-    category: 'tops', 
-    image: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
-    price: '$39'
+    id: "2",
+    name: "Summer Blouse",
+    category: "tops",
+    image:
+      "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
+    price: "$39",
   },
   {
-    id: '3',
-    name: 'Denim Jeans',
-    category: 'bottoms',
-    image: 'https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
-    price: '$79'
+    id: "3",
+    name: "Denim Jeans",
+    category: "bottoms",
+    image:
+      "https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
+    price: "$79",
   },
   {
-    id: '4',
-    name: 'Elegant Dress',
-    category: 'one-piece',
-    image: 'https://images.pexels.com/photos/1040424/pexels-photo-1040424.jpeg?auto=compress&cs=tinysrgb&w=200&h=200',
-    price: '$89'
-  }
+    id: "4",
+    name: "Elegant Dress",
+    category: "one-piece",
+    image:
+      "https://images.pexels.com/photos/1040424/pexels-photo-1040424.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
+    price: "$89",
+  },
 ];
 ---
 
 <div class="clothes-selector">
   <h3 class="section-title">Select Clothes</h3>
-  
-  <div class="upload-section">
-    <label for="imageUpload" class="upload-button">
-      Upload Image
-      <input type="file" id="imageUpload" accept="image/*" class="hidden-file-input">
-    </label>
-  </div>  
+
+  <button id="upload_widget" class="upload-button"> Upload files </button>
+
+  <!-- Add data attributes to pass the values -->
+  <div
+    id="cloudinary-config"
+    data-cloud-name={cloudName}
+    data-upload-preset={uploadPreset}
+    style="display: none;"
+  >
+  </div>
+</div>
 
 <script>
-  import '../scripts/components/ClothesSelector.ts';
+  import "../scripts/components/ClothesSelector.ts";
+  import "../scripts/components/cloudinaryUpload.ts";
 </script>

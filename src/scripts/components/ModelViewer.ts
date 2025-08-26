@@ -1,109 +1,148 @@
 // Check if we're in the browser environment
 if (typeof document !== 'undefined') {
   document.addEventListener('DOMContentLoaded', () => {
-    const modelDisplay = document.getElementById('modelDisplay');
-    const modelPreview = document.getElementById('modelPreview') as HTMLElement;
-    const modelImage = document.getElementById('modelImage') as HTMLImageElement;
-    const modelBadge = document.getElementById('modelBadge') as HTMLElement;
-    const clothingOverlay = document.getElementById('clothingOverlay') as HTMLElement;
-    const clothingImage = document.getElementById('clothingImage') as HTMLImageElement;
-    const emptyState = modelDisplay?.querySelector('.empty-state') as HTMLElement;
-    const resetBtn = document.getElementById('resetBtn');
+    const placeholderState = document.getElementById('placeholderState') as HTMLElement;
+    const resultPreview = document.getElementById('resultPreview') as HTMLElement;
+    const resultImage = document.getElementById('resultImage') as HTMLImageElement;
+    const processingModal = document.getElementById('processingModal') as HTMLElement;
+    const processingStatus = document.getElementById('processingStatus') as HTMLElement;
+    const progressFill = document.getElementById('progressFill') as HTMLElement;
+    const downloadBtn = document.getElementById('downloadBtn') as HTMLButtonElement;
     
-    let currentModel: { id: string; name: string; image: string } | null = null;
-    let currentClothing: { id: string; name: string; image: string } | null = null;
+    let progressInterval: NodeJS.Timeout | null = null;
+    let currentImageUrl: string | null = null;
 
-    // Model data mapping
-    const modelData: Record<string, { name: string; image: string }> = {
-      '1': { name: 'Sarah', image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400&h=600' },
-      '2': { name: 'Emma', image: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400&h=600' },
-      '3': { name: 'Michael', image: 'https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=400&h=600' },
-      '4': { name: 'David', image: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400&h=600' }
-    };
+    function showPlaceholder() {
+      if (placeholderState) placeholderState.style.display = 'flex';
+      if (resultPreview) resultPreview.style.display = 'none';
+    }
 
-    // Clothing data mapping
-    const clothingData: Record<string, { name: string; image: string }> = {
-      '1': { name: 'Classic White Shirt', image: 'https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=300&h=400' },
-      '2': { name: 'Summer Blouse', image: 'https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=300&h=400' },
-      '3': { name: 'Denim Jeans', image: 'https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=300&h=400' },
-      '4': { name: 'Elegant Dress', image: 'https://images.pexels.com/photos/1040424/pexels-photo-1040424.jpeg?auto=compress&cs=tinysrgb&w=300&h=400' }
-    };
+    function showResult(imageUrl: string) {
+      currentImageUrl = imageUrl;
+      if (resultImage) resultImage.src = imageUrl;
+      if (placeholderState) placeholderState.style.display = 'none';
+      if (resultPreview) resultPreview.style.display = 'block';
+    }
 
-    function showModel(modelId: string) {
-      const model = modelData[modelId];
-      if (!model) return;
+    async function downloadImage() {
+      if (!currentImageUrl) return;
 
-      currentModel = { id: modelId, ...model };
-      
-      if (modelImage) modelImage.src = model.image;
-      if (modelBadge) modelBadge.textContent = `Model: ${model.name}`;
-      
-      if (emptyState) emptyState.style.display = 'none';
-      if (modelPreview) modelPreview.style.display = 'block';
-      
-      // Add entrance animation
-      if (modelPreview) {
-        modelPreview.style.opacity = '0';
-        modelPreview.style.transform = 'scale(0.9)';
+      try {
+        // Fetch the image
+        const response = await fetch(currentImageUrl);
+        const blob = await response.blob();
         
-        setTimeout(() => {
-          if (modelPreview) {
-            modelPreview.style.opacity = '1';
-            modelPreview.style.transform = 'scale(1)';
-          }
-        }, 100);
+        // Create download link
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        
+        // Generate filename with timestamp
+        const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
+        link.download = `tryon-result-${timestamp}.png`;
+        
+        // Trigger download
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        // Clean up
+        window.URL.revokeObjectURL(url);
+        
+      } catch (error) {
+        console.error('Download failed:', error);
+        
+        // Fallback: open in new tab
+        window.open(currentImageUrl, '_blank');
       }
     }
 
-    function showClothing(itemId: string) {
-      const clothing = clothingData[itemId];
-      if (!clothing || !currentModel) return;
+    function showProcessingModal() {
+      if (processingModal) processingModal.style.display = 'flex';
+      
+      // Start progress animation
+      let progress = 0;
+      const progressMessages = [
+        'Submitting request...',
+        'Processing image...',
+        'Applying garment...',
+        'Finalizing result...'
+      ];
+      let messageIndex = 0;
 
-      currentClothing = { id: itemId, ...clothing };
+      if (progressFill) progressFill.style.width = '0%';
       
-      if (clothingImage) clothingImage.src = clothing.image;
-      if (clothingOverlay) clothingOverlay.style.display = 'block';
-      
-      // Add clothing animation
-      if (clothingOverlay) {
-        clothingOverlay.style.opacity = '0';
-        clothingOverlay.style.transform = 'scale(0.8)';
+      progressInterval = setInterval(() => {
+        progress += 2; // Increase by 2% every interval
         
-        setTimeout(() => {
-          if (clothingOverlay) {
-            clothingOverlay.style.opacity = '1';
-            clothingOverlay.style.transform = 'scale(1)';
+        if (progressFill) {
+          progressFill.style.width = `${Math.min(progress, 95)}%`; // Cap at 95% until completion
+        }
+        
+        // Update message every 25% progress
+        if (progress % 25 === 0 && messageIndex < progressMessages.length - 1) {
+          messageIndex++;
+          if (processingStatus) {
+            processingStatus.textContent = progressMessages[messageIndex];
           }
-        }, 100);
-      }
+        }
+      }, 1000); // Update every second
     }
 
-    function resetView() {
-      currentModel = null;
-      currentClothing = null;
+    function hideProcessingModal() {
+      if (processingModal) processingModal.style.display = 'none';
       
-      if (modelPreview) modelPreview.style.display = 'none';
-      if (clothingOverlay) clothingOverlay.style.display = 'none';
-      if (emptyState) emptyState.style.display = 'flex';
+      if (progressInterval) {
+        clearInterval(progressInterval);
+        progressInterval = null;
+      }
+      
+      // Complete the progress bar
+      if (progressFill) progressFill.style.width = '100%';
+      
+      // Reset for next time
+      setTimeout(() => {
+        if (progressFill) progressFill.style.width = '0%';
+        if (processingStatus) processingStatus.textContent = 'Submitting request...';
+      }, 500);
     }
 
     // Event listeners
-    document.addEventListener('modelSelected', (e) => {
+    document.addEventListener('process-start', () => {
+      showProcessingModal();
+    });
+
+    document.addEventListener('process-complete', (e) => {
       const customEvent = e as CustomEvent;
-      showModel(customEvent.detail.modelId);
+      const { imageUrl, success } = customEvent.detail;
+
+      hideProcessingModal();
+      
+      if (success && imageUrl) {
+        showResult(imageUrl);
+      }
     });
 
-    document.addEventListener('clothesSelected', (e) => {
-      const customEvent = e as CustomEvent;
-      showClothing(customEvent.detail.itemId);
+    document.addEventListener('process-error', () => {
+      hideProcessingModal();
     });
 
-    document.addEventListener('modelTypeChanged', () => {
-      resetView();
-    });
-
-    if (resetBtn) {
-      resetBtn.addEventListener('click', resetView);
+    // Close modal when clicking backdrop
+    if (processingModal) {
+      processingModal.addEventListener('click', (e) => {
+        if (e.target === processingModal) {
+          // Don't allow closing during processing
+          // hideProcessingModal();
+        }
+      });
     }
+
+    // Download button event listener
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', downloadImage);
+    }
+
+    // Initialize with placeholder
+    showPlaceholder();
   });
 }

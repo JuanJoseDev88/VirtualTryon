@@ -29,8 +29,19 @@ if (typeof document !== 'undefined') {
     document.addEventListener('categorySelected', (e) => {
       const customEvent = e as CustomEvent;
       updateClothesVisibility(customEvent.detail.category);
+    });
+
+    // Listen for Cloudinary uploads
+    document.addEventListener('cloudinaryUpload', (e) => {
+      const customEvent = e as CustomEvent;
+      console.log('Garment uploaded:', customEvent.detail.secure_url);
+      
+      // Dispatch clothes selected event to indicate we have a garment
       document.dispatchEvent(new CustomEvent('clothesSelected', {
-        detail: { category: customEvent.detail.category }
+        detail: { 
+          uploadedUrl: customEvent.detail.secure_url,
+          type: 'upload'
+        }
       }));
     });
 

@@ -11,9 +11,10 @@
 
 .vtryon-app .viewer-container {
   width: 100%;
-  max-width: 400px;
-  aspect-ratio: 3 / 4;
+  max-width: 450px;
+  aspect-ratio: 2 / 3;
   position: relative;
+  min-height: 500px;
 }
 
 .vtryon-app .model-display {
@@ -28,7 +29,7 @@
   position: relative;
 }
 
-.vtryon-app .empty-state {
+.vtryon-app .placeholder-state {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,12 +37,13 @@
   text-align: center;
   color: var(--text-muted-1);
   padding: var(--space-md);
+  height: 100%;
 }
 
-.vtryon-app .placeholder-avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+.vtryon-app .placeholder-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
   background-color: var(--surface-muted-50);
   display: flex;
   align-items: center;
@@ -49,33 +51,71 @@
   margin-bottom: var(--space-md);
 }
 
-.vtryon-app .placeholder-avatar svg {
+.vtryon-app .placeholder-icon svg {
   color: var(--text-muted-2);
 }
 
-.vtryon-app .empty-state h3 {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 8px;
-}
-
-.vtryon-app .empty-state p {
-  font-size: 14px;
+.vtryon-app .placeholder-state p {
+  font-size: 16px;
+  color: var(--text-muted-1);
   max-width: 250px;
 }
 
-.vtryon-app .model-preview {
+.vtryon-app .result-preview {
   width: 100%;
   height: 100%;
   position: relative;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.vtryon-app #modelImage {
+.vtryon-app .result-preview:hover .result-controls {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.vtryon-app #resultImage {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.vtryon-app .result-controls {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  opacity: 0.8;
+  transform: translateY(4px);
+  transition: all 0.3s ease;
+}
+
+.vtryon-app .download-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: var(--surface-dark-80);
+  color: var(--white);
+  border: 1px solid var(--surface-muted-50);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.vtryon-app .download-btn:hover {
+  background-color: var(--accent-1);
+  border-color: var(--accent-1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.vtryon-app .download-btn svg {
+  flex-shrink: 0;
 }
 
 .vtryon-app .model-info-overlay {
@@ -134,4 +174,96 @@
 .vtryon-app .control-btn:hover {
   background-color: var(--surface-muted-50);
   color: var(--white);
+}
+
+/* Processing Modal */
+.vtryon-app .processing-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vtryon-app .modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+.vtryon-app .modal-content {
+  position: relative;
+  background-color: var(--surface-dark-80);
+  border-radius: 16px;
+  padding: var(--space-xl);
+  max-width: 400px;
+  width: 90%;
+  border: 1px solid var(--surface-muted-50);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.vtryon-app .modal-header h3 {
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.vtryon-app .modal-body {
+  text-align: center;
+}
+
+.vtryon-app .processing-animation {
+  margin-bottom: var(--space-lg);
+}
+
+.vtryon-app .spinner-large {
+  width: 60px;
+  height: 60px;
+  border: 3px solid var(--surface-muted-50);
+  border-top-color: var(--accent-1);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+.vtryon-app .processing-status {
+  margin-top: var(--space-lg);
+}
+
+.vtryon-app .processing-status p {
+  color: var(--text-muted-1);
+  font-size: 16px;
+  margin-bottom: var(--space-md);
+}
+
+.vtryon-app .progress-bar {
+  width: 100%;
+  height: 6px;
+  background-color: var(--surface-muted-50);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.vtryon-app .progress-fill {
+  height: 100%;
+  background: var(--btn-gradient-1);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+  width: 0%;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
