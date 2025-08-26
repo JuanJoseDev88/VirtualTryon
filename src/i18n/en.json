@@ -93,13 +93,45 @@
     "clothingCategory": {
       "title": "Clothing Category"
     },
+    "clothesSelector": {
+      "title": "Select Clothes",
+      "uploadFiles": "Upload files"
+    },
+    "modelGallery": {
+      "title": "Choose Your Model"
+    },
     "processButton": {
       "processImage": "Process Image",
       "processing": "Processing..."
     },
+    "modelViewer": {
+      "placeholder": "Result image will be displayed here",
+      "download": "Download",
+      "processingTitle": "Processing Your Try-On",
+      "processingStatus": {
+        "submitting": "Submitting request...",
+        "processing": "Processing image...",
+        "applying": "Applying garment...",
+        "finalizing": "Finalizing result..."
+      }
+    },
     "imageAlt": {
       "modelPreview": "Model preview",
-      "clothingOverlay": "Clothing overlay"
+      "clothingOverlay": "Clothing overlay",
+      "tryOnResult": "Try-on result"
+    },
+    "accessibility": {
+      "toggleTheme": "Toggle light/dark theme",
+      "toggleDarkMode": "Toggle dark mode",
+      "switchLanguage": "Switch Language",
+      "switchToEnglish": "Switch to English",
+      "switchToSpanish": "Switch to Spanish"
+    },
+    "clothingItems": {
+      "classicWhiteShirt": "Classic White Shirt",
+      "summerBlouse": "Summer Blouse", 
+      "denimJeans": "Denim Jeans",
+      "elegantDress": "Elegant Dress"
     }
   },
   "categories": {

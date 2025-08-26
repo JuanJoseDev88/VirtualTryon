@@ -93,13 +93,45 @@
     "clothingCategory": {
       "title": "Categoría de Ropa"
     },
+    "clothesSelector": {
+      "title": "Seleccionar Ropa",
+      "uploadFiles": "Subir archivos"
+    },
+    "modelGallery": {
+      "title": "Elige Tu Modelo"
+    },
     "processButton": {
       "processImage": "Procesar Imagen",
       "processing": "Procesando..."
     },
+    "modelViewer": {
+      "placeholder": "La imagen del resultado se mostrará aquí",
+      "download": "Descargar",
+      "processingTitle": "Procesando Tu Prueba",
+      "processingStatus": {
+        "submitting": "Enviando solicitud...",
+        "processing": "Procesando imagen...",
+        "applying": "Aplicando prenda...",
+        "finalizing": "Finalizando resultado..."
+      }
+    },
     "imageAlt": {
       "modelPreview": "Vista previa del modelo",
-      "clothingOverlay": "Superposición de ropa"
+      "clothingOverlay": "Superposición de ropa",
+      "tryOnResult": "Resultado de prueba"
+    },
+    "accessibility": {
+      "toggleTheme": "Alternar tema claro/oscuro",
+      "toggleDarkMode": "Alternar modo oscuro",
+      "switchLanguage": "Cambiar idioma",
+      "switchToEnglish": "Cambiar a inglés",
+      "switchToSpanish": "Cambiar a español"
+    },
+    "clothingItems": {
+      "classicWhiteShirt": "Camisa Blanca Clásica",
+      "summerBlouse": "Blusa de Verano",
+      "denimJeans": "Jeans de Mezclilla",
+      "elegantDress": "Vestido Elegante"
     }
   },
   "categories": {

@@ -171,6 +171,16 @@ class I18nManager {
         element.setAttribute('title', translation);
       }
     }
+
+    // Update aria-label attributes
+    const ariaLabelElements = document.querySelectorAll('[data-i18n-aria-label]');
+    for (const element of ariaLabelElements) {
+      const key = element.getAttribute('data-i18n-aria-label');
+      if (key) {
+        const translation = await this.translate(key);
+        element.setAttribute('aria-label', translation);
+      }
+    }
   }
 
   /**

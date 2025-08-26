@@ -34,10 +34,14 @@ const { title } = Astro.props;
       </svg>
     </button>
     <!-- Independent theme toggle for app header (moved to end) -->
-  <button class="theme-toggle" id="themeToggleHeader" title="Toggle light/dark theme" aria-label="Toggle dark mode" aria-pressed="false">
+  <button class="theme-toggle" id="themeToggleHeader" data-i18n-title="app.accessibility.toggleTheme" data-i18n-aria-label="app.accessibility.toggleDarkMode" aria-pressed="false">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
         <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
       </svg>
     </button>
   </div>
 </header>
+
+<script>
+  import '../i18n/client.ts';
+</script>

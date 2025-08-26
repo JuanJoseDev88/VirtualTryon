@@ -4,7 +4,7 @@ import { LANGUAGE_NAMES, DEFAULT_LANGUAGE } from '../i18n/index';
 ---
 
 <div class="language-switcher" id="languageSwitcher">
-  <button class="lang-toggle" id="langToggle" aria-label="Switch Language">
+  <button class="lang-toggle" id="langToggle" data-i18n-aria-label="app.accessibility.switchLanguage">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <circle cx="12" cy="12" r="10"></circle>
       <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
@@ -18,11 +18,11 @@ import { LANGUAGE_NAMES, DEFAULT_LANGUAGE } from '../i18n/index';
   </button>
   
   <div class="lang-dropdown" id="langDropdown">
-    <button class="lang-option" data-lang="en" aria-label="Switch to English">
+    <button class="lang-option" data-lang="en" data-i18n-aria-label="app.accessibility.switchToEnglish">
       <span class="flag-icon">🇺🇸</span>
       <span class="lang-name">English</span>
     </button>
-    <button class="lang-option" data-lang="es" aria-label="Cambiar a Español">
+    <button class="lang-option" data-lang="es" data-i18n-aria-label="app.accessibility.switchToSpanish">
       <span class="flag-icon">🇪🇸</span>
       <span class="lang-name">Español</span>
     </button>
@@ -31,4 +31,5 @@ import { LANGUAGE_NAMES, DEFAULT_LANGUAGE } from '../i18n/index';
 
 <script>
   import '../scripts/components/LanguageSwitcher.ts';
+  import '../i18n/client.ts';
 </script>

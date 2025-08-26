@@ -14,20 +14,20 @@ import '../styles/components/model-viewer.css';
             <polyline points="21,15 16,10 5,21"></polyline>
           </svg>
         </div>
-        <p>Result image will be displayed here</p>
+        <p data-i18n="app.modelViewer.placeholder">Result image will be displayed here</p>
       </div>
       
       <!-- Result image -->
       <div class="result-preview" id="resultPreview" style="display: none;">
-        <img id="resultImage" src="" alt="Try-on result" />
+        <img id="resultImage" src="" alt="" data-i18n-alt="app.imageAlt.tryOnResult" />
         <div class="result-controls">
-          <button class="download-btn" id="downloadBtn" title="Download Result">
+          <button class="download-btn" id="downloadBtn" data-i18n-title="app.modelViewer.download">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
               <polyline points="7,10 12,15 17,10"></polyline>
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
-            Download
+            <span data-i18n="app.modelViewer.download">Download</span>
           </button>
         </div>
       </div>
@@ -40,14 +40,14 @@ import '../styles/components/model-viewer.css';
   <div class="modal-backdrop"></div>
   <div class="modal-content">
     <div class="modal-header">
-      <h3>Processing Your Try-On</h3>
+      <h3 data-i18n="app.modelViewer.processingTitle">Processing Your Try-On</h3>
     </div>
     <div class="modal-body">
       <div class="processing-animation">
         <div class="spinner-large"></div>
       </div>
       <div class="processing-status">
-        <p id="processingStatus">Submitting request...</p>
+        <p id="processingStatus" data-i18n="app.modelViewer.processingStatus.submitting">Submitting request...</p>
         <div class="progress-bar">
           <div class="progress-fill" id="progressFill"></div>
         </div>
@@ -58,4 +58,5 @@ import '../styles/components/model-viewer.css';
 
 <script>
   import '../scripts/components/ModelViewer.ts';
+  import '../i18n/client.ts';
 </script>

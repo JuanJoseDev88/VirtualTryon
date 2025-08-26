@@ -2,7 +2,8 @@ import type {
   TryOnRequest,
   TryOnResponse,
   TryOnInitialResponse,
-  TryOnStatusResponse
+  TryOnStatusResponse,
+  QualityMode
 } from '../../domain/entities/TryOnRequest';
 
 const FASHN_API_URL = 'https://api.fashn.ai/v1/run';
@@ -11,7 +12,7 @@ const FASHN_STATUS_URL = 'https://api.fashn.ai/v1/status';
 // Get API key from DOM element (passed from server-side)
 function getFashnApiKey(): string | null {
   if (typeof document === 'undefined') return null;
-  
+
   const configElement = document.getElementById('fashn-config');
   return configElement?.getAttribute('data-api-key') || null;
 }
@@ -20,7 +21,7 @@ export class TryOnService {
   static async processTryOn(request: TryOnRequest): Promise<TryOnResponse> {
     try {
       const apiKey = getFashnApiKey();
-      
+
       if (!apiKey) {
         throw new Error('FASHN_API_KEY is not configured. Please check your .env file and restart the dev server.');
       }
@@ -167,14 +168,16 @@ export class TryOnService {
 
   static createTryOnRequest(
     modelImageUrl: string,
-    garmentImageUrl: string
+    garmentImageUrl: string,
+    mode: 'performance' | 'balanced' | 'quality' = 'quality'
   ): TryOnRequest {
     return {
       model_name: "tryon-v1.6",
       inputs: {
         model_image: modelImageUrl,
         garment_image: garmentImageUrl
-      }
+      },
+      mode: mode
     };
   }
 }

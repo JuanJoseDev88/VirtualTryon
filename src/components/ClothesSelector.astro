@@ -1,13 +1,17 @@
 ---
 import "../styles/components/clothes-selector.css";
 import "../styles/components/upload-button.css";
+import { createTranslator, DEFAULT_LANGUAGE } from '../i18n/index';
+
+// Use default language for server-side rendering
+const t = createTranslator(DEFAULT_LANGUAGE);
 
 const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
 const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
 
 interface ClothingItem {
   id: string;
-  name: string;
+  nameKey: string;
   category: string;
   image: string;
   price: string;
@@ -16,7 +20,7 @@ interface ClothingItem {
 const clothingItems: ClothingItem[] = [
   {
     id: "1",
-    name: "Classic White Shirt",
+    nameKey: "app.clothingItems.classicWhiteShirt",
     category: "tops",
     image:
       "https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
@@ -24,7 +28,7 @@ const clothingItems: ClothingItem[] = [
   },
   {
     id: "2",
-    name: "Summer Blouse",
+    nameKey: "app.clothingItems.summerBlouse",
     category: "tops",
     image:
       "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
@@ -32,7 +36,7 @@ const clothingItems: ClothingItem[] = [
   },
   {
     id: "3",
-    name: "Denim Jeans",
+    nameKey: "app.clothingItems.denimJeans",
     category: "bottoms",
     image:
       "https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
@@ -40,7 +44,7 @@ const clothingItems: ClothingItem[] = [
   },
   {
     id: "4",
-    name: "Elegant Dress",
+    nameKey: "app.clothingItems.elegantDress",
     category: "one-piece",
     image:
       "https://images.pexels.com/photos/1040424/pexels-photo-1040424.jpeg?auto=compress&cs=tinysrgb&w=200&h=200",
@@ -50,9 +54,9 @@ const clothingItems: ClothingItem[] = [
 ---
 
 <div class="clothes-selector">
-  <h3 class="section-title">Select Clothes</h3>
+  <h3 class="section-title" data-i18n="app.clothesSelector.title">{t('app.clothesSelector.title')}</h3>
 
-  <button id="upload_widget" class="upload-button"> Upload files </button>
+  <button id="upload_widget" class="upload-button" data-i18n="app.clothesSelector.uploadFiles">{t('app.clothesSelector.uploadFiles')}</button>
 
   <!-- Add data attributes to pass the values -->
   <div
@@ -67,4 +71,5 @@ const clothingItems: ClothingItem[] = [
 <script>
   import "../scripts/components/ClothesSelector.ts";
   import "../scripts/components/cloudinaryUpload.ts";
+  import "../i18n/client.ts";
 </script>

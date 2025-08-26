@@ -63,10 +63,10 @@ if (typeof document !== 'undefined') {
       // Start progress animation
       let progress = 0;
       const progressMessages = [
-        'Submitting request...',
-        'Processing image...',
-        'Applying garment...',
-        'Finalizing result...'
+        document.querySelector('[data-i18n="app.modelViewer.processingStatus.submitting"]')?.textContent || 'Submitting request...',
+        document.querySelector('[data-i18n="app.modelViewer.processingStatus.processing"]')?.textContent || 'Processing image...',
+        document.querySelector('[data-i18n="app.modelViewer.processingStatus.applying"]')?.textContent || 'Applying garment...',
+        document.querySelector('[data-i18n="app.modelViewer.processingStatus.finalizing"]')?.textContent || 'Finalizing result...'
       ];
       let messageIndex = 0;
 
@@ -103,7 +103,7 @@ if (typeof document !== 'undefined') {
       // Reset for next time
       setTimeout(() => {
         if (progressFill) progressFill.style.width = '0%';
-        if (processingStatus) processingStatus.textContent = 'Submitting request...';
+        if (processingStatus) processingStatus.textContent = document.querySelector('[data-i18n="app.modelViewer.processingStatus.submitting"]')?.textContent || 'Submitting request...';
       }, 500);
     }
 

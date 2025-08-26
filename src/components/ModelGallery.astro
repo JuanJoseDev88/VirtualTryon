@@ -1,33 +1,49 @@
 ---
-import '../styles/components/model-gallery.css';
+import "../styles/components/model-gallery.css";
+import { createTranslator, DEFAULT_LANGUAGE } from "../i18n/index";
 
-import { models } from '../data/models.ts';
+// Use default language for server-side rendering
+const t = createTranslator(DEFAULT_LANGUAGE);
+
+import { models } from "../data/models.ts";
 ---
 
 <div class="model-gallery">
-  <h3 class="section-title">Choose Your Model</h3>
+  <h3 class="section-title" data-i18n="app.modelGallery.title">
+    {t("app.modelGallery.title")}
+  </h3>
   <div class="models-grid" data-current-type="female">
-    {models.map(model => (
-      <div 
-        class={`model-card ${model.type}`} 
-        data-model-id={model.id}
-        data-model-type={model.type}
-      >
-        <div class="model-image">
-          <img src={model.image} alt={`Model ${model.name}`} />
-          <div class="model-overlay">
-            <div class="select-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="20,6 9,17 4,12"></polyline>
-              </svg>
+    {
+      models.map((model) => (
+        <div
+          class={`model-card ${model.type}`}
+          data-model-id={model.id}
+          data-model-type={model.type}
+        >
+          <div class="model-image">
+            <img src={model.image} alt={t("app.imageAlt.modelPreview")} />
+            <div class="model-overlay">
+              <div class="select-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="20,6 9,17 4,12" />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    ))}
+      ))
+    }
   </div>
 </div>
 
 <script>
-  import '../scripts/components/ModelGallery.ts';
+  import "../scripts/components/ModelGallery.ts";
+  import "../i18n/client.ts";
 </script>

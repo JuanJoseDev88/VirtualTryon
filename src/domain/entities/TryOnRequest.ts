@@ -1,9 +1,12 @@
+export type QualityMode = 'performance' | 'balanced' | 'quality';
+
 export interface TryOnRequest {
   model_name: string;
   inputs: {
     model_image: string;
     garment_image: string;
   };
+  mode?: QualityMode;
 }
 
 export interface TryOnInitialResponse {
